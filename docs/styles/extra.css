@@ -195,3 +195,10 @@
   background-color: rgba(239, 68, 68, 0.22) !important;
   color: #fee2e2 !important;
 }
+.md-nav--primary {
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary {
+  background: linear-gradient(90deg, #7f1d1d, #991b1b) !important;
+}
