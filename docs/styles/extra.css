@@ -1,9 +1,11 @@
-/* ----- BASE RED TOKENS (override Material red so we control the shades) ----- */
+/* -----------------------------------------------------------
+   1. Base red palette tokens (override Material's red shades)
+----------------------------------------------------------- */
 
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #dc2626;        /* main red */
-  --md-primary-fg-color--light: #fca5a5; /* light red */
-  --md-primary-fg-color--dark: #7f1d1d;  /* dark red */
+  --md-primary-fg-color: #dc2626;
+  --md-primary-fg-color--light: #fca5a5;
+  --md-primary-fg-color--dark: #7f1d1d;
 }
 
 [data-md-color-scheme="slate"] {
@@ -12,7 +14,9 @@
   --md-primary-fg-color--dark: #450a0a;
 }
 
-/* ----- TOP HEADER + TABS (gradient) ----- */
+/* -----------------------------------------------------------
+   2. Top header + tabs (gradient, desktop & mobile)
+----------------------------------------------------------- */
 
 .md-header,
 .md-tabs {
@@ -29,8 +33,6 @@
   background: transparent !important;
 }
 
-/* header icons & search */
-
 .md-header__button,
 .md-header__option,
 .md-search__form,
@@ -44,14 +46,15 @@
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* ----- PRIMARY SIDEBAR + MOBILE DRAWER (background + text) ----- */
+/* -----------------------------------------------------------
+   3. Primary sidebar / mobile drawer
+   - Make whole panel red gradient
+   - Force inner containers transparent so white doesn't show
+----------------------------------------------------------- */
 
-/* container backgrounds (desktop sidebar + mobile drawer at all levels) */
+/* Main drawer / sidebar background */
 .md-sidebar--primary,
-.md-drawer,
-.md-drawer__inner,
-.md-sidebar--primary .md-sidebar__inner,
-.md-sidebar--primary .md-sidebar__scrollwrap {
+.md-drawer {
   background: linear-gradient(
     180deg,
     var(--md-primary-fg-color),
@@ -60,7 +63,13 @@
   color: #ffffff !important;
 }
 
-/* drawer / sidebar header (book icon + title) */
+/* Kill white backgrounds inside drawer so gradient shows */
+.md-sidebar--primary *,
+.md-drawer * {
+  background-color: transparent !important;
+}
+
+/* Drawer / sidebar header (book icon + title) */
 .md-sidebar__header,
 .md-nav__title--site {
   background: linear-gradient(
@@ -75,34 +84,26 @@
   color: #ffffff !important;
 }
 
-/* make inner nav backgrounds transparent so gradient shows through */
-.md-nav--primary,
-.md-nav--primary .md-nav,
-.md-nav--primary .md-nav__list,
-.md-nav--primary .md-nav__item {
-  background: transparent !important;
-}
-
-/* links inside sidebar/drawer */
+/* Primary nav links (drawer & desktop sidebar) */
 .md-nav__link {
-  color: inherit !important;             /* inherit white from parent */
+  color: inherit !important;
   border-radius: 6px;
   padding: 6px 10px;
   font-weight: 400;
 }
 
-/* hover + active states */
+/* Active + hover states (re-applied AFTER the * selector above) */
 .md-nav__link:hover {
-  background-color: rgba(252, 165, 165, 0.25) !important;
+  background-color: rgba(252, 165, 165, 0.30) !important;
 }
 
 .md-nav__link--active {
-  background-color: rgba(252, 165, 165, 0.35) !important;
+  background-color: rgba(252, 165, 165, 0.45) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
 }
 
-/* section titles (e.g., Documentation, Results) */
+/* Section titles (e.g., "Results", "Documentation") */
 .md-nav__item--section > .md-nav__title {
   background: linear-gradient(
     90deg,
@@ -116,7 +117,9 @@
   font-weight: 700;
 }
 
-/* ----- RIGHT SIDEBAR (TOC) ----- */
+/* -----------------------------------------------------------
+   4. Right sidebar (TOC)
+----------------------------------------------------------- */
 
 .md-nav--secondary {
   padding-top: 12px;
@@ -144,11 +147,11 @@
 
 /* TOC hover + active */
 .md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(252, 165, 165, 0.25) !important;
+  background-color: rgba(252, 165, 165, 0.30) !important;
 }
 
 .md-nav--secondary .md-nav__link--active {
-  background-color: rgba(252, 165, 165, 0.35) !important;
+  background-color: rgba(252, 165, 165, 0.45) !important;
   color: #ffffff !important;
   font-weight: 600;
 }
