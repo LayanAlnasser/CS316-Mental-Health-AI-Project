@@ -1,49 +1,26 @@
-/* ---------- GLOBAL RED THEME TOKENS ---------- */
-
-:root {
-  --mh-red-dark: #7f1d1d;
-  --mh-red-main: #b91c1c;
-  --mh-red-light: #ef4444;
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #dc2626;
+  --md-primary-fg-color--light: #fca5a5;
+  --md-primary-fg-color--dark: #7f1d1d;
 }
 
-/* Tell Material what "custom" primary means */
-[data-md-color-primary="custom"] {
-  --md-primary-fg-color: var(--mh-red-main);
-  --md-primary-fg-color--light: #fecaca;
-  --md-primary-fg-color--dark: var(--mh-red-dark);
-}
-
-[data-md-color-scheme="slate"][data-md-color-primary="custom"] {
-  --md-primary-fg-color: var(--mh-red-main);
-  --md-primary-fg-color--light: #fecaca;
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #dc2626;
+  --md-primary-fg-color--light: #fca5a5;
   --md-primary-fg-color--dark: #450a0a;
 }
 
-/* ---------- HEADER & TOP TABS ---------- */
-
 .md-header,
 .md-tabs {
-  background: linear-gradient(90deg, var(--mh-red-dark), var(--mh-red-main)) !important;
+  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
   color: #fff !important;
 }
 
-[data-md-color-scheme="default"] .md-header,
-[data-md-color-scheme="default"] .md-tabs {
-  background: linear-gradient(90deg, var(--mh-red-main), var(--mh-red-light)) !important;
-}
-
-[data-md-color-scheme="slate"] .md-header,
-[data-md-color-scheme="slate"] .md-tabs {
-  background: linear-gradient(90deg, #450a0a, var(--mh-red-dark)) !important;
-}
-
-/* Header inner wrappers stay transparent */
 .md-header__inner,
 .md-tabs__inner {
   background: transparent !important;
 }
 
-/* Header icons & search */
 .md-header__button,
 .md-header__option,
 .md-search__form,
@@ -57,128 +34,75 @@
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* ---------- MOBILE / DESKTOP DRAWER (PRIMARY SIDEBAR) ---------- */
-
-/* Sidebar container (mobile drawer background) */
-.md-sidebar--primary,
-.md-sidebar--primary .md-sidebar__header {
-  background: linear-gradient(180deg, var(--mh-red-main), var(--mh-red-dark)) !important;
+.md-sidebar__header,
+.md-nav__title--site {
+  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
   color: #fff !important;
 }
 
-/* Nav area inside sidebar */
-.md-nav--primary {
-  padding-top: 12px;
-  background: transparent !important;
+.md-sidebar--primary {
+  background: linear-gradient(180deg, var(--md-primary-fg-color), var(--md-primary-fg-color--dark)) !important;
+  color: #fff !important;
 }
 
-/* Site title in drawer */
-.md-nav__title--site,
 .md-nav__title--site a {
   color: #fff !important;
 }
 
-/* Normal links */
-.md-nav--primary .md-nav__link {
-  background: transparent !important;
+.md-nav__link {
   color: inherit !important;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 6px 10px;
   font-weight: 400;
 }
 
-/* Active link */
-.md-nav--primary .md-nav__link--active {
-  background-color: rgba(185, 28, 28, 0.16) !important;
-  color: var(--mh-red-main) !important;
-  font-weight: 700 !important;
+.md-nav__link:hover {
+  background-color: rgba(220, 38, 38, 0.15) !important;
 }
 
-/* Hover */
-.md-nav--primary .md-nav__link:hover {
-  background-color: rgba(220, 38, 38, 0.10);
+.md-nav__link--active {
+  background-color: rgba(220, 38, 38, 0.25) !important;
+  color: var(--md-primary-fg-color) !important;
+  font-weight: 600 !important;
 }
 
-/* Section titles (e.g., Documentation, Results) */
-.md-nav--primary .md-nav__item--section > .md-nav__title,
-.md-nav--primary .md-nav__item--section > .md-nav__link {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-
-  background: linear-gradient(90deg, var(--mh-red-dark), var(--mh-red-main), var(--mh-red-light)) !important;
+.md-nav__item--section > .md-nav__title {
+  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
   color: #fff !important;
-
-  border-radius: 12px;
-  padding: 8px 12px;
-  margin: 0 0 10px 0;
-
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
   font-weight: 700;
-  letter-spacing: 0.2px;
 }
-
-/* Dark mode tweaks for sidebar */
-[data-md-color-scheme="slate"] .md-sidebar--primary,
-[data-md-color-scheme="slate"] .md-sidebar--primary .md-sidebar__header {
-  background: linear-gradient(180deg, #450a0a, var(--mh-red-dark)) !important;
-}
-
-[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link--active {
-  background-color: rgba(239, 68, 68, 0.22) !important;
-  color: #fee2e2 !important;
-}
-
-/* ---------- RIGHT SIDEBAR (TOC) ---------- */
 
 .md-nav--secondary {
   padding-top: 12px;
 }
 
-/* TOC title pill */
 .md-nav--secondary .md-nav__title {
-  background: linear-gradient(90deg, var(--mh-red-dark), var(--mh-red-main), var(--mh-red-light)) !important;
+  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
   color: #fff !important;
-
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin: 0 0 10px 0;
-
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
   font-weight: 700;
-  letter-spacing: 0.2px;
 }
 
-/* TOC links */
 .md-nav--secondary .md-nav__link {
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 6px 10px;
 }
 
-/* TOC hover */
 .md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(220, 38, 38, 0.10);
+  background-color: rgba(220, 38, 38, 0.15) !important;
 }
 
-/* TOC active */
 .md-nav--secondary .md-nav__link--active {
-  background-color: rgba(220, 38, 38, 0.18) !important;
-  color: var(--mh-red-main) !important;
-  font-weight: 700;
+  background-color: rgba(220, 38, 38, 0.25) !important;
+  color: var(--md-primary-fg-color) !important;
+  font-weight: 600;
 }
 
 .md-nav--secondary .md-nav__link--active * {
   color: inherit !important;
-}
-
-/* Dark mode TOC */
-[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__title {
-  background: linear-gradient(90deg, #450a0a, var(--mh-red-dark), var(--mh-red-main)) !important;
-}
-
-[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(239, 68, 68, 0.12);
-}
-
-[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
-  background-color: rgba(239, 68, 68, 0.22) !important;
-  color: #fee2e2 !important;
 }
