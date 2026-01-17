@@ -1,0 +1,87 @@
+site_name: CS316 Mental Health AI Project
+site_description: NLP-based Mental Health Classification Research Project
+site_author: Layan Alnasser
+repo_url: https://github.com/LayanAlnasser/CS316-Mental-Health-AI-Project
+repo_name: CS316 Mental Health AI Project
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      accent: "deep orange"
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: "deep orange"
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Project Overview:
+      - Introduction: docs/introduction.md
+      - Objectives: docs/objectives.md
+      - Ethical & Societal Considerations: docs/ethics.md
+  - Methodology:
+      - Data Sources & Preprocessing: docs/methodology/data.md
+      - Models & Training: docs/methodology/models.md
+      - Evaluation Metrics: docs/methodology/evaluation.md
+  - Results:
+      - Findings & Visualizations: docs/results/findings.md
+      - Error Analysis: docs/results/error-analysis.md
+      - Limitations: docs/results/limitations.md
+  - Deployment:
+      - Application Usage: docs/deployment/app.md
+      - Installation: docs/deployment/install.md
+      - API / Interface (Optional): docs/deployment/api.md
+  - Documentation:
+      - Repository Structure: docs/documentation/repo-structure.md
+      - Requirements: docs/documentation/requirements.md
+      - Future Work: docs/documentation/future-work.md
+  - Paper & Presentation:
+      - IEEE Paper: docs/paper/paper.md
+      - Presentation Slides: docs/paper/slides.md
+      - Submission Artifacts: docs/paper/artifacts.md
+  - About:
+      - Contributors: docs/about/contributors.md
+      - Contact: docs/about/contact.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - sane_lists
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - pymdownx.tasklist
+  - pymdownx.highlight
+  - pymdownx.magiclink
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/LayanAlnasser
+
+extra_css:
+  - styles/style.css
+
+plugins:
+  - search

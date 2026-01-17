@@ -1,0 +1,99 @@
+:root {
+  --red-1: #b71c1c; /* darker red */
+  --red-2: #e53935; /* lighter red */
+}
+
+/* Header */
+.md-header {
+  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  color: #fff !important;
+}
+
+/* Top tabs */
+.md-tabs {
+  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+}
+
+.md-header__inner,
+.md-tabs__inner {
+  background: transparent !important;
+}
+
+/* Header icons & search */
+.md-search__form,
+.md-search__input,
+.md-search__icon,
+.md-header__option {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+/* Tabs hover */
+.md-tabs__link:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sidebar links reset */
+.md-nav--primary .md-nav__link {
+  background: transparent !important;
+  color: inherit !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+}
+
+/* Sidebar section headers */
+.md-nav--primary .md-nav__item--section > .md-nav__title,
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  display: flex !important;
+  align-items: center !important;
+  width: calc(100% - 16px) !important;
+  margin: 8px !important;
+  padding: 8px 12px !important;
+  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  box-sizing: border-box !important;
+}
+
+.md-nav--primary .md-nav__item--section > .md-nav__title .md-nav__button {
+  margin-left: auto !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Active sidebar link */
+.md-nav--primary .md-nav__link--active {
+  background-color: rgba(229, 57, 53, 0.18) !important;
+  color: var(--red-1) !important;
+  font-weight: 700 !important;
+}
+
+/* TOC */
+.md-nav--secondary {
+  padding-top: 12px !important;
+}
+
+.md-nav--secondary .md-nav__title {
+  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+}
+
+.md-nav--secondary .md-nav__link {
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+}
+
+.md-nav--secondary .md-nav__link:hover {
+  background-color: rgba(229, 57, 53, 0.10) !important;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  background-color: rgba(229, 57, 53, 0.20) !important;
+  color: var(--red-1) !important;
+  font-weight: 700 !important;
+}
