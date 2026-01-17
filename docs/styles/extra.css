@@ -106,3 +106,24 @@
 .md-nav--secondary .md-nav__link--active * {
   color: inherit !important;
 }
+/* Light mode mobile drawer background */
+[data-md-color-scheme="default"] .md-sidebar--primary {
+  background: linear-gradient(180deg, var(--md-primary-fg-color), var(--md-primary-fg-color--dark)) !important;
+  color: #fff !important;
+}
+
+/* Light mode drawer list background */
+[data-md-color-scheme="default"] .md-nav--primary {
+  background: transparent !important;
+}
+
+/* Light mode drawer title area */
+[data-md-color-scheme="default"] .md-sidebar__header {
+  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
+  color: #fff !important;
+}
+
+/* Light mode links */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: #fff !important;
+}
