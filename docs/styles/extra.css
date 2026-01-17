@@ -1,22 +1,27 @@
-:root {
-  --red-1: #b71c1c; /* darker red */
-  --red-2: #e53935; /* lighter red */
-}
-
-/* Header */
 .md-header {
-  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  background: linear-gradient(90deg, #7f1d1d, #991b1b) !important;
   color: #fff !important;
 }
 
-/* Top tabs */
 .md-tabs {
-  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  background: linear-gradient(90deg, #7f1d1d, #991b1b) !important;
 }
 
 .md-header__inner,
 .md-tabs__inner {
   background: transparent !important;
+}
+
+/* Light mode header/tabs */
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-tabs {
+  background: linear-gradient(90deg, #991b1b, #dc2626) !important;
+}
+
+/* Dark mode header/tabs */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background: linear-gradient(90deg, #450a0a, #7f1d1d) !important;
 }
 
 /* Header icons & search */
@@ -28,72 +33,165 @@
   color: #fff !important;
 }
 
-/* Tabs hover */
 .md-tabs__link:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Sidebar links reset */
+/* =========================
+   LEFT SIDEBAR (PRIMARY NAV)
+========================= */
+
+.md-nav--primary {
+  padding-top: 12px;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__title {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 0 8px 0 !important;
+}
+
+/* Gradient section title pill */
+.md-nav--primary .md-nav__item > .md-nav__title,
+.md-nav--primary .md-nav__item > .md-nav__title .md-nav__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+
+  background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 60%, #dc2626 100%) !important;
+  color: #fff !important;
+
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+
+  font-weight: 700 !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Sidebar links */
+.md-nav--primary .md-nav__link {
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+/* Hover */
+.md-nav--primary .md-nav__link:hover {
+  background-color: rgba(220, 38, 38, 0.10);
+}
+
+/* Active */
+.md-nav--primary .md-nav__link--active {
+  background-color: rgba(220, 38, 38, 0.18) !important;
+  font-weight: 700;
+}
+
+/* Light mode sidebar title */
+[data-md-color-scheme="default"]
+.md-nav--primary .md-nav__item > .md-nav__title,
+[data-md-color-scheme="default"]
+.md-nav--primary .md-nav__item > .md-nav__title .md-nav__button {
+  background: linear-gradient(90deg, #991b1b, #dc2626) !important;
+}
+
+/* Dark mode sidebar title */
+[data-md-color-scheme="slate"]
+.md-nav--primary .md-nav__item > .md-nav__title,
+[data-md-color-scheme="slate"]
+.md-nav--primary .md-nav__item > .md-nav__title .md-nav__button {
+  background: linear-gradient(90deg, #450a0a 0%, #7f1d1d 70%, #991b1b) !important;
+}
+
+/* =========================
+   RIGHT SIDEBAR (TOC)
+========================= */
+
+.md-nav--secondary {
+  padding-top: 12px;
+}
+
+.md-nav--secondary .md-nav__title {
+  background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 60%, #dc2626 100%) !important;
+  color: #fff !important;
+
+  border-radius: 10px;
+  padding: 10px 12px !important;
+  margin: 0 0 10px 0 !important;
+
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.md-nav--secondary .md-nav__link {
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+/* TOC hover */
+.md-nav--secondary .md-nav__link:hover {
+  background-color: rgba(220, 38, 38, 0.10);
+}
+
+/* TOC active */
+.md-nav--secondary .md-nav__link--active {
+  background-color: rgba(220, 38, 38, 0.18) !important;
+  color: #991b1b !important;
+  font-weight: 700;
+}
+
+.md-nav--secondary .md-nav__link--active * {
+  color: inherit !important;
+}
+
+/* Dark mode TOC */
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__title {
+  background: linear-gradient(90deg, #450a0a 0%, #7f1d1d 70%, #991b1b) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link:hover {
+  background-color: rgba(239, 68, 68, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
+  background-color: rgba(239, 68, 68, 0.22) !important;
+  color: #fee2e2 !important;
+}
+
+/* RESET for normal links */
 .md-nav--primary .md-nav__link {
   background: transparent !important;
   color: inherit !important;
   font-weight: 400 !important;
-  border-radius: 8px !important;
+  border-radius: 8px;
 }
 
-/* Sidebar section headers */
+/* Gradient for section titles */
+.md-nav--primary .md-nav__item--section > .md-nav__link,
 .md-nav--primary .md-nav__item--section > .md-nav__title,
-.md-nav--primary .md-nav__item--section > .md-nav__link {
-  display: flex !important;
-  align-items: center !important;
-  width: calc(100% - 16px) !important;
-  margin: 8px !important;
-  padding: 8px 12px !important;
-  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
-  color: #fff !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  box-sizing: border-box !important;
-}
-
 .md-nav--primary .md-nav__item--section > .md-nav__title .md-nav__button {
-  margin-left: auto !important;
-  background: transparent !important;
-  color: inherit !important;
-}
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
 
-/* Active sidebar link */
-.md-nav--primary .md-nav__link--active {
-  background-color: rgba(229, 57, 53, 0.18) !important;
-  color: var(--red-1) !important;
-  font-weight: 700 !important;
-}
-
-/* TOC */
-.md-nav--secondary {
-  padding-top: 12px !important;
-}
-
-.md-nav--secondary .md-nav__title {
-  background: linear-gradient(90deg, var(--red-1), var(--red-2)) !important;
+  background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 60%, #dc2626 100%) !important;
   color: #fff !important;
-  border-radius: 10px !important;
-  padding: 10px 12px !important;
-  margin-bottom: 10px !important;
+
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  margin: 0 0 10px 0 !important;
+
+  font-weight: 700 !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Active highlight (non-gradient) */
+.md-nav--primary .md-nav__link--active {
+  background-color: rgba(220, 38, 38, 0.16) !important;
+  color: #991b1b !important;
   font-weight: 700 !important;
 }
 
-.md-nav--secondary .md-nav__link {
-  border-radius: 8px !important;
-  padding: 6px 10px !important;
-}
-
-.md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(229, 57, 53, 0.10) !important;
-}
-
-.md-nav--secondary .md-nav__link--active {
-  background-color: rgba(229, 57, 53, 0.20) !important;
-  color: var(--red-1) !important;
-  font-weight: 700 !important;
+/* Dark mode active */
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link--active {
+  background-color: rgba(239, 68, 68, 0.22) !important;
+  color: #fee2e2 !important;
 }
