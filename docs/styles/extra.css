@@ -1,4 +1,5 @@
-/* Top header + tabs: red gradient */
+/* Red gradient for top header + tabs only */
+
 .md-header,
 .md-tabs {
   background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
@@ -10,7 +11,7 @@
   background: transparent !important;
 }
 
-/* Keep icons & search visible on top of the gradient */
+/* Keep icons & search visible on top of gradient */
 .md-header__button,
 .md-header__option,
 .md-search__form,
@@ -20,12 +21,11 @@
   color: #ffffff !important;
 }
 
-/* Hover on tabs */
 .md-tabs__link:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Optional: make the drawer HEADER (only the top bar) match the gradient */
+/* OPTIONAL: drawer header bar uses same gradient */
 .md-sidebar__header,
 .md-nav__title--site {
   background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
