@@ -1,9 +1,13 @@
-/* Red gradient for top header + tabs only */
+/* =======================================================
+   HEADER + TABS (RED GRADIENT)
+======================================================= */
+.md-header {
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
+  color: #fff !important;
+}
 
-.md-header,
 .md-tabs {
   background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
-  color: #ffffff !important;
 }
 
 .md-header__inner,
@@ -11,27 +15,103 @@
   background: transparent !important;
 }
 
-/* Keep icons & search visible on top of gradient */
-.md-header__button,
-.md-header__option,
 .md-search__form,
 .md-search__input,
-.md-search__icon {
+.md-search__icon,
+.md-header__option {
   background-color: transparent !important;
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
 .md-tabs__link:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* OPTIONAL: drawer header bar uses same gradient */
-.md-sidebar__header,
-.md-nav__title--site {
-  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
-  color: #ffffff !important;
+/* =======================================================
+   LEFT SIDEBAR (PRIMARY NAV)
+======================================================= */
+
+/* Reset base nav links */
+.md-nav--primary .md-nav__link {
+  background: transparent !important;
+  color: inherit !important;
+  font-weight: 400 !important;
+  border-radius: 8px;
 }
 
-.md-nav__title--site a {
-  color: #ffffff !important;
+/* SECTION HEADERS (e.g., "Documentation", "Results") */
+.md-nav--primary .md-nav__item--section > .md-nav__title,
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  display: flex !important;
+  align-items: center !important;
+  width: calc(100% - 16px) !important;
+
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+  margin-bottom: 10px !important;
+
+  padding: 8px 12px !important;
+
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
+  color: #fff !important;
+
+  border-radius: 12px !important;
+
+  font-weight: 700 !important;
+  letter-spacing: 0.2px !important;
+  box-sizing: border-box !important;
+}
+
+/* Chevron inside section titles */
+.md-nav--primary .md-nav__item--section > .md-nav__title .md-nav__button {
+  margin-left: auto !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* ACTIVE PAGE LINK */
+.md-nav--primary .md-nav__link--active {
+  background-color: rgba(239, 68, 68, 0.20) !important;
+  color: #b91c1c !important;
+  font-weight: 700 !important;
+}
+
+/* =======================================================
+   RIGHT SIDEBAR (TOC)
+======================================================= */
+
+.md-nav--secondary {
+  padding-top: 12px;
+}
+
+/* TOC header pill */
+.md-nav--secondary .md-nav__title {
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+  font-weight: 700;
+}
+
+/* TOC links */
+.md-nav--secondary .md-nav__link {
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+/* TOC hover */
+.md-nav--secondary .md-nav__link:hover {
+  background-color: rgba(239, 68, 68, 0.10);
+}
+
+/* TOC active */
+.md-nav--secondary .md-nav__link--active {
+  background-color: rgba(239, 68, 68, 0.20) !important;
+  color: #b91c1c !important;
+  font-weight: 700 !important;
+}
+
+.md-nav--secondary .md-nav__link--active * {
+  color: inherit !important;
 }
