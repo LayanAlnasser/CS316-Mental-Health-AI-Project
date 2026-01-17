@@ -1,7 +1,9 @@
+/* ----- BASE RED TOKENS (override Material red so we control the shades) ----- */
+
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #dc2626;
-  --md-primary-fg-color--light: #fca5a5;
-  --md-primary-fg-color--dark: #7f1d1d;
+  --md-primary-fg-color: #dc2626;        /* main red */
+  --md-primary-fg-color--light: #fca5a5; /* light red */
+  --md-primary-fg-color--dark: #7f1d1d;  /* dark red */
 }
 
 [data-md-color-scheme="slate"] {
@@ -10,10 +12,16 @@
   --md-primary-fg-color--dark: #450a0a;
 }
 
+/* ----- TOP HEADER + TABS (gradient) ----- */
+
 .md-header,
 .md-tabs {
-  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
-  color: #fff !important;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color--dark),
+    var(--md-primary-fg-color)
+  ) !important;
+  color: #ffffff !important;
 }
 
 .md-header__inner,
@@ -21,109 +29,130 @@
   background: transparent !important;
 }
 
+/* header icons & search */
+
 .md-header__button,
 .md-header__option,
 .md-search__form,
 .md-search__input,
 .md-search__icon {
   background-color: transparent !important;
-  color: #fff !important;
+  color: #ffffff !important;
 }
 
 .md-tabs__link:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.md-sidebar__header,
-.md-nav__title--site {
-  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
-  color: #fff !important;
+/* ----- PRIMARY SIDEBAR + MOBILE DRAWER (background + text) ----- */
+
+/* container backgrounds (desktop sidebar + mobile drawer at all levels) */
+.md-sidebar--primary,
+.md-drawer,
+.md-drawer__inner,
+.md-sidebar--primary .md-sidebar__inner,
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  background: linear-gradient(
+    180deg,
+    var(--md-primary-fg-color),
+    var(--md-primary-fg-color--dark)
+  ) !important;
+  color: #ffffff !important;
 }
 
-.md-sidebar--primary {
-  background: linear-gradient(180deg, var(--md-primary-fg-color), var(--md-primary-fg-color--dark)) !important;
-  color: #fff !important;
+/* drawer / sidebar header (book icon + title) */
+.md-sidebar__header,
+.md-nav__title--site {
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color--dark),
+    var(--md-primary-fg-color)
+  ) !important;
+  color: #ffffff !important;
 }
 
 .md-nav__title--site a {
-  color: #fff !important;
+  color: #ffffff !important;
 }
 
+/* make inner nav backgrounds transparent so gradient shows through */
+.md-nav--primary,
+.md-nav--primary .md-nav,
+.md-nav--primary .md-nav__list,
+.md-nav--primary .md-nav__item {
+  background: transparent !important;
+}
+
+/* links inside sidebar/drawer */
 .md-nav__link {
-  color: inherit !important;
+  color: inherit !important;             /* inherit white from parent */
   border-radius: 6px;
   padding: 6px 10px;
   font-weight: 400;
 }
 
+/* hover + active states */
 .md-nav__link:hover {
-  background-color: rgba(220, 38, 38, 0.15) !important;
+  background-color: rgba(252, 165, 165, 0.25) !important;
 }
 
 .md-nav__link--active {
-  background-color: rgba(220, 38, 38, 0.25) !important;
-  color: var(--md-primary-fg-color) !important;
+  background-color: rgba(252, 165, 165, 0.35) !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
 }
 
+/* section titles (e.g., Documentation, Results) */
 .md-nav__item--section > .md-nav__title {
-  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
-  color: #fff !important;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color--dark),
+    var(--md-primary-fg-color)
+  ) !important;
+  color: #ffffff !important;
   padding: 6px 10px;
   border-radius: 8px;
   margin-bottom: 10px;
   font-weight: 700;
 }
 
+/* ----- RIGHT SIDEBAR (TOC) ----- */
+
 .md-nav--secondary {
   padding-top: 12px;
 }
 
+/* TOC title pill */
 .md-nav--secondary .md-nav__title {
-  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
-  color: #fff !important;
+  background: linear-gradient(
+    90deg,
+    var(--md-primary-fg-color--dark),
+    var(--md-primary-fg-color)
+  ) !important;
+  color: #ffffff !important;
   border-radius: 8px;
   padding: 8px 10px;
   margin-bottom: 10px;
   font-weight: 700;
 }
 
+/* TOC links */
 .md-nav--secondary .md-nav__link {
   border-radius: 6px;
   padding: 6px 10px;
 }
 
+/* TOC hover + active */
 .md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(220, 38, 38, 0.15) !important;
+  background-color: rgba(252, 165, 165, 0.25) !important;
 }
 
 .md-nav--secondary .md-nav__link--active {
-  background-color: rgba(220, 38, 38, 0.25) !important;
-  color: var(--md-primary-fg-color) !important;
+  background-color: rgba(252, 165, 165, 0.35) !important;
+  color: #ffffff !important;
   font-weight: 600;
 }
 
 .md-nav--secondary .md-nav__link--active * {
   color: inherit !important;
-}
-/* Light mode mobile drawer background */
-[data-md-color-scheme="default"] .md-sidebar--primary {
-  background: linear-gradient(180deg, var(--md-primary-fg-color), var(--md-primary-fg-color--dark)) !important;
-  color: #fff !important;
-}
-
-/* Light mode drawer list background */
-[data-md-color-scheme="default"] .md-nav--primary {
-  background: transparent !important;
-}
-
-/* Light mode drawer title area */
-[data-md-color-scheme="default"] .md-sidebar__header {
-  background: linear-gradient(90deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color)) !important;
-  color: #fff !important;
-}
-
-/* Light mode links */
-[data-md-color-scheme="default"] .md-nav__link {
-  color: #fff !important;
 }
