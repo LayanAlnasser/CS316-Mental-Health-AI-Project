@@ -47,6 +47,8 @@ nav:
       - Repository Structure: documentation/repo-structure.md
       - Requirements: documentation/requirements.md
       - Future Work: documentation/future-work.md
+      - Dataset: dataset.md
+
   - Paper & Presentation:
       - IEEE Paper: paper/paper.md
       - Presentation Slides: paper/slides.md
