@@ -1,30 +1,7 @@
-/* -----------------------------------------------------------
-   1. Base red palette tokens (override Material's red shades)
------------------------------------------------------------ */
-
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #dc2626;
-  --md-primary-fg-color--light: #fca5a5;
-  --md-primary-fg-color--dark: #7f1d1d;
-}
-
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #dc2626;
-  --md-primary-fg-color--light: #fca5a5;
-  --md-primary-fg-color--dark: #450a0a;
-}
-
-/* -----------------------------------------------------------
-   2. Top header + tabs (gradient, desktop & mobile)
------------------------------------------------------------ */
-
+/* Top header + tabs: red gradient */
 .md-header,
 .md-tabs {
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color--dark),
-    var(--md-primary-fg-color)
-  ) !important;
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
   color: #ffffff !important;
 }
 
@@ -33,6 +10,7 @@
   background: transparent !important;
 }
 
+/* Keep icons & search visible on top of the gradient */
 .md-header__button,
 .md-header__option,
 .md-search__form,
@@ -42,120 +20,18 @@
   color: #ffffff !important;
 }
 
+/* Hover on tabs */
 .md-tabs__link:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* -----------------------------------------------------------
-   3. Primary sidebar / mobile drawer
-   - Make whole panel red gradient
-   - Force inner containers transparent so white doesn't show
------------------------------------------------------------ */
-
-/* Main drawer / sidebar background */
-.md-sidebar--primary,
-.md-drawer {
-  background: linear-gradient(
-    180deg,
-    var(--md-primary-fg-color),
-    var(--md-primary-fg-color--dark)
-  ) !important;
-  color: #ffffff !important;
-}
-
-/* Kill white backgrounds inside drawer so gradient shows */
-.md-sidebar--primary *,
-.md-drawer * {
-  background-color: transparent !important;
-}
-
-/* Drawer / sidebar header (book icon + title) */
+/* Optional: make the drawer HEADER (only the top bar) match the gradient */
 .md-sidebar__header,
 .md-nav__title--site {
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color--dark),
-    var(--md-primary-fg-color)
-  ) !important;
+  background: linear-gradient(90deg, #b91c1c, #ef4444) !important;
   color: #ffffff !important;
 }
 
 .md-nav__title--site a {
   color: #ffffff !important;
-}
-
-/* Primary nav links (drawer & desktop sidebar) */
-.md-nav__link {
-  color: inherit !important;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-weight: 400;
-}
-
-/* Active + hover states (re-applied AFTER the * selector above) */
-.md-nav__link:hover {
-  background-color: rgba(252, 165, 165, 0.30) !important;
-}
-
-.md-nav__link--active {
-  background-color: rgba(252, 165, 165, 0.45) !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-}
-
-/* Section titles (e.g., "Results", "Documentation") */
-.md-nav__item--section > .md-nav__title {
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color--dark),
-    var(--md-primary-fg-color)
-  ) !important;
-  color: #ffffff !important;
-  padding: 6px 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-/* -----------------------------------------------------------
-   4. Right sidebar (TOC)
------------------------------------------------------------ */
-
-.md-nav--secondary {
-  padding-top: 12px;
-}
-
-/* TOC title pill */
-.md-nav--secondary .md-nav__title {
-  background: linear-gradient(
-    90deg,
-    var(--md-primary-fg-color--dark),
-    var(--md-primary-fg-color)
-  ) !important;
-  color: #ffffff !important;
-  border-radius: 8px;
-  padding: 8px 10px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-/* TOC links */
-.md-nav--secondary .md-nav__link {
-  border-radius: 6px;
-  padding: 6px 10px;
-}
-
-/* TOC hover + active */
-.md-nav--secondary .md-nav__link:hover {
-  background-color: rgba(252, 165, 165, 0.30) !important;
-}
-
-.md-nav--secondary .md-nav__link--active {
-  background-color: rgba(252, 165, 165, 0.45) !important;
-  color: #ffffff !important;
-  font-weight: 600;
-}
-
-.md-nav--secondary .md-nav__link--active * {
-  color: inherit !important;
 }
