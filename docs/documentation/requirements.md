@@ -11,6 +11,18 @@ This project follows the **CS316 – Artificial Intelligence and Data Science** 
 - Deliver a **source code repository** with a clean structure and instructions.
 - Present results through a **presentation** and supporting visuals.
 
+## Additional Academic Requirements
+
+In compliance with CS316 project standards, the documentation must also include:
+
+- **Motivation and problem significance**
+- **Relevant literature and related work**
+- **Dataset documentation** (source, labels, ethics, licensing)
+- **Model justification and design choices**
+- **Computational considerations and sustainability**
+- **Reproducibility details** (versions, seeds, dependencies)
+- **Clear disclaimers for non-clinical use**
+
 ---
 
 ## Deliverables
