@@ -30,7 +30,9 @@ The project includes a prototype **web application** that loads the trained mode
 ```bash
 streamlit run app.py
 ```
+
 ---
+
 ## 2. Using the Interface
 
 - Enter a text sample into the input box.
