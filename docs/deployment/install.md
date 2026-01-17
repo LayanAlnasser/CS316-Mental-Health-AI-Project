@@ -8,17 +8,17 @@ cd CS316-Mental-Health-AI-Project
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-
+```
 Ensure your Python version matches the one specified in the course or README (e.g., 3.10+).
-
+```
 mkdocs serve
+```
 Then open http://127.0.0.1:8000 in your browser.
 
 ---
 
 ### `docs/deployment/app.md`
 
-```markdown
 # Application Usage
 
 The project includes a prototype **web application** that loads the trained models and allows users to enter sample text for classification.
@@ -50,7 +50,6 @@ It is not a medical or clinical diagnostic system.
 
 ### `docs/deployment/api.md`
 
-```markdown
 # API / Interface (Optional)
 
 If an API layer is added (e.g., Flask/FastAPI), document:
