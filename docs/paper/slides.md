@@ -7,12 +7,10 @@ This format allows for better visualization, navigation, and responsiveness comp
 
 ## Viewing Options
 
-You may choose any of the following options to view the presentation:
-
 ### ▶ Open in a New Tab
 Use this option for full-screen viewing.
 
-🔗 **[Open Presentation in New Tab](slides/presentation.html)**
+🔗 **[Open Presentation in New Tab](./presentation.html)**
 
 ---
 
@@ -20,19 +18,21 @@ Use this option for full-screen viewing.
 You can view the presentation directly below without leaving the site.
 
 <iframe
-  src="slides/presentation.html"
+  src="./presentation.html"
   width="100%"
-  height="600px"
+  height="650"
   style="border: none;"
   title="CS316 Mental Health AI Project Presentation">
 </iframe>
 
 ---
 
-### ⬇ Download the Presentation
-If you prefer to view the slides offline or submit them separately:
+### ⬇ Download the Presentation (Best Effort)
 
-📥 **[Download HTML Slides](slides/presentation.html)**
+<a href="./presentation.html" download>Download HTML Slides</a>
+
+> **Note:** Some browsers open HTML files instead of downloading them.  
+> If this happens, right-click the link above and select **“Save Link As…”**.
 
 ---
 
@@ -51,5 +51,5 @@ The presentation summarizes:
 ## Notes
 
 - The HTML slides are compatible with modern web browsers.
-- No additional software is required to view or run the presentation.
+- No additional software is required to view the presentation.
 - The presentation is intended for **academic demonstration and evaluation purposes only**.
