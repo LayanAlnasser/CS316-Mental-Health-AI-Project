@@ -1,42 +1,53 @@
-# CS316-Mental-Health-AI-Project
+# CS316 Mental Health AI Project
 
-A research-focused AI system applying Natural Language Processing (NLP) and Machine Learning techniques to analyze mental health expressions in textual data. The project classifies indicators related to anxiety and depression while emphasizing responsible AI principles, including fairness, privacy, and societal impact.
+A research-focused AI system that applies **Natural Language Processing (NLP)** and **Machine Learning** techniques to analyze mental health–related text.  
+The project focuses on identifying **depression** and **anxiety severity levels** from Arabic textual narratives while emphasizing **responsible, ethical, and non-diagnostic AI use**.
+
+🌐 **Project Website:**  
+[https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/](https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/)
 
 ---
 
 ## 1. Project Overview
 
-This project explores the use of NLP-based text classification models to detect mental health indicators in user-generated text. The objective is to evaluate the potential of AI-assisted screening systems within public mental health contexts, with attention to ethical and sustainable deployment practices.
+This project investigates the feasibility of **AI-assisted mental health screening** through text analysis. Unlike traditional static assessments, the system is designed to support **longitudinal monitoring** by analyzing changes in mental health expressions over time.
+
+The project was developed as part of the  
+**CS316 – Artificial Intelligence and Data Science** course and follows a **research-oriented and ethically grounded approach**.
 
 The system includes:
 
-- Data preprocessing and feature extraction
-- Training ML classifiers for anxiety and depression detection
-- Evaluation using quantitative performance metrics
-- A simple web-based application interface for demonstration
+- Synthetic longitudinal Arabic text data generation  
+- Embedding-based text representation  
+- Machine learning classifiers for severity prediction  
+- Quantitative evaluation using standard classification metrics  
+- A lightweight prototype application for demonstration  
 
 ---
 
 ## 2. Objectives
 
-The core objectives of this project are to:
+The main objectives of this project are to:
 
-- Apply AI/ML methodologies for public mental health analysis
-- Utilize real-world textual datasets for classification tasks
-- Assess model performance and reliability
-- Highlight ethical considerations such as privacy, bias, and responsible usage
-- Deliver reproducible research artifacts aligned with CS316 requirements
+- Apply AI and NLP techniques to mental health–related text analysis  
+- Analyze **Arabic-language narratives**, addressing low-resource NLP challenges  
+- Predict **depression and anxiety severity levels** using machine learning  
+- Evaluate model performance and reliability  
+- Integrate ethical, privacy-aware, and responsible AI principles  
+- Deliver reproducible research artifacts aligned with CS316 requirements  
 
 ---
 
-## 3. Features
+## 3. Key Features
 
-- NLP-based text classification using traditional ML models (e.g., SVM)
-- Support for English and Arabic dataset entries
-- Interactive application interface (prototype)
-- Exportable model artifacts (`.pkl` files)
-- Dataset documentation and preprocessing pipeline
-- Reproducible environment using `requirements.txt`
+- NLP-based text classification using **Support Vector Machines (SVM)**  
+- **Embedding-based vectorization** for semantic representation  
+- Prediction of **four-level severity scores** (none, mild, moderate, severe)  
+- Independent modeling of depression and anxiety  
+- Longitudinal trend analysis with alert mechanisms  
+- Exportable trained model artifacts (`.pkl`)  
+- Fully documented pipeline and methodology  
+- Interactive prototype application for academic demonstration  
 
 ---
 
@@ -44,52 +55,58 @@ The core objectives of this project are to:
 
 **Techniques and tools used:**
 
-- **Language Processing:** Tokenization, vectorization, embeddings
-- **ML Models:** Support Vector Machines (SVM) and baselines
-- **Metrics:** Accuracy, F1-score, confusion matrix
-- **Environment:** Python, scikit-learn, pandas, NumPy, etc.
-- **Interface:** Simple web application (streamlit or flask depending on environment)
+- **Text Representation:** Pre-trained multilingual embeddings  
+- **Machine Learning Models:** Support Vector Machines with RBF kernel  
+- **Evaluation Metrics:** Accuracy, precision, recall, F1-score, ROC/AUC, confusion matrices  
+- **Environment:** Python, scikit-learn, pandas, NumPy  
+- **Interface:** Lightweight prototype application (educational use only)  
 
-A full methodological description will be included in the conference-style paper as part of Phase 3.
+A complete methodological description is provided in the **IEEE-style research paper** included in the documentation.
 
 ---
 
-## 5. Datasets
+## 5. Dataset
 
-This project uses a combination of publicly available and curated datasets containing mental health expressions related to anxiety and depression.
+The project uses a **synthetic longitudinal Arabic text dataset** designed to simulate realistic mental health narratives over time.
 
-Dataset properties include:
+Dataset characteristics:
 
-- Text entries labeled for mental health categories
-- Multilingual entries (English and Arabic)
-- Preprocessing pipeline for cleaning and labeling
+- 2,500 text entries  
+- 100 synthetic individuals  
+- 25 time-ordered entries per individual  
+- Severity labels for **depression** and **anxiety** (0–3 scale)  
+- Labeling scheme adapted from PHQ-9 and GAD-7  
 
-**Note:** For responsible use, personally identifiable information (PII) is not included, and the data is handled according to privacy-aware practices.
+**Important:**  
+All data are **synthetic**. No real individuals, personal data, or online sources were used.
 
 ---
 
 ## 6. Responsible & Ethical Considerations
 
-Because mental health is a sensitive domain, this project incorporates:
+Given the sensitive nature of mental health applications, the project emphasizes:
 
-- Fairness & bias considerations
-- Privacy and data protection awareness
-- Discussion of limitations and non-diagnostic usage
-- Transparency of model decision-making
-- Sustainability and societal impact analysis
+- Privacy preservation through synthetic data  
+- Fairness and bias awareness  
+- Transparency and interpretability  
+- Clear non-diagnostic intent  
+- Human oversight and responsible usage  
+- Societal and sustainability considerations  
 
-This ensures alignment with CS316 requirements regarding responsible AI practices.
+The system is intended for **research, education, and awareness only** and must not be used for clinical diagnosis or treatment.
 
 ---
-## ٧. Installation & Usage
 
-### **Prerequisites**
-- Python 3.10+
-- pip or conda
+## 7. Installation & Usage
 
-### **Setup**
+### Prerequisites
+- Python 3.9 or later
+- pip package manager
+
+### Setup
 
 ```bash
-git clone https://github.com/<your-username>/CS316-Mental-Health-AI-Project.git
+git clone https://github.com/LayanAlnasser/CS316-Mental-Health-AI-Project.git
 cd CS316-Mental-Health-AI-Project
 pip install -r requirements.txt
+
