@@ -3,7 +3,7 @@
 A research-focused AI system that applies **Natural Language Processing (NLP)** and **Machine Learning** techniques to analyze mental health–related text.  
 The project focuses on identifying **depression** and **anxiety severity levels** from Arabic textual narratives while emphasizing **responsible, ethical, and non-diagnostic AI use**.
 
-🌐 **Project Website:**  
+**Project Website:**  
 [https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/](https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/)
 
 ---
