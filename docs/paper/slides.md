@@ -14,19 +14,6 @@ Use this option for full-screen viewing.
 
 ---
 
-### 👁 View Embedded on This Page
-You can view the presentation directly below without leaving the site.
-
-<iframe
-  src="./presentation.html"
-  width="100%"
-  height="650"
-  style="border: none;"
-  title="CS316 Mental Health AI Project Presentation">
-</iframe>
-
----
-
 ### ⬇ Download the Presentation (Best Effort)
 
 <a href="./presentation.html" download>Download HTML Slides</a>
