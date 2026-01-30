@@ -32,7 +32,7 @@ nav:
   - Project Overview:
       - Introduction: introduction.md
       - Objectives: objectives.md
-      - Ethical & Societal Considerations: ethics.md
+      - Ethical & Societal Considerations: documentation/ethics.md
   - Methodology:
       - Data Sources & Preprocessing: methodology/data.md
       - Models & Training: methodology/models.md
