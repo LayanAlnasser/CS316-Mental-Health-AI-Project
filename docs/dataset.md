@@ -4,21 +4,7 @@ This project uses two custom-written datasets:
 
 ---
 
-## 1. English Mental Health Dataset
-
-**File:** `Dataset_Ai_in_mental_health.csv`  
-**Format:** CSV  
-
-**Description:**  
-This dataset contains English text entries labeled for mental health categories such as anxiety and depression.  
-All entries are written manually for academic training purposes.
-
-**Download:**  
-[Click here to download](datasets/Dataset_Ai_in_mental_health.csv)
-
----
-
-## 2. Arabic Mental Health Dataset
+## 1. Arabic Mental Health Dataset
 
 **File:** `mental_health_arabic_dataset_new.xlsx`  
 **Format:** Excel (XLSX)
