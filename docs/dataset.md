@@ -14,7 +14,7 @@ This dataset contains Arabic text entries related to mental health with associat
 It was written manually to support multilingual NLP experiments.
 
 **Download:**  
-[Click here to download](datasets/mental_health_arabic_dataset_new.xlsx)
+[Click here to download](datasets/mental_health_arabic_dataset.xlsx)
 
 ---
 
