@@ -26,11 +26,17 @@ Use this option for full-screen viewing.
 ## Presentation Overview
 
 The presentation summarizes:
+
 - Project motivation and problem statement
+
 - Dataset design and methodology
+
 - Model architecture and evaluation
+
 - Key results and findings
+
 - Ethical considerations and limitations
+
 - Conclusions and future work
 
 ---
