@@ -1,48 +1,86 @@
-# Data Sources & Preprocessing
+# Data Generation and Preparation
 
-## 1. Datasets
-
-The project uses one or more mental-health related text datasets, including:
-
-- A labeled dataset for **depression** and **anxiety** expressions.
-- An **Arabic mental-health dataset** (e.g., `mental_health_arabic_dataset_new.xlsx`).
-- Additional JSON/CSV sources for text entries.
-
-Each entry typically includes:
-
-- A text field (user expression, post, or sentence).
-- One or more labels (e.g., depression / anxiety / control).
-
-(Here you can later add exact dataset names, sources, and links.)
+This project uses a **synthetic, longitudinal Arabic text dataset** designed to simulate realistic mental health expressions over time. The dataset enables controlled experimentation while preserving ethical standards related to privacy and sensitive data handling.
 
 ---
 
-## 2. Preprocessing Pipeline
+## Dataset Design
 
-Typical steps:
+The dataset consists of **2,500 Arabic text entries** representing mental health–related narratives. These entries simulate the experiences of **100 synthetic individuals**, with **25 time-ordered entries per individual**, enabling longitudinal analysis.
 
-1. **Cleaning**
+Each text entry is independently annotated with two severity labels:
 
-   - Lowercasing, removal of URLs, emojis (if not used as features), and extra whitespace.
+- **Depression severity**
+- **Anxiety severity**
 
-2. **Tokenization**
+Severity levels follow a four-point ordinal scale:
 
-   - Word-level or subword tokenization depending on the chosen vectorization.
+| Score | Severity Level |
+|-----|---------------|
+| 0 | None |
+| 1 | Mild |
+| 2 | Moderate |
+| 3 | Severe |
 
-3. **Normalization (Arabic)**
+The labeling scheme is adapted from established clinical screening instruments, including **PHQ-9** and **GAD-7**, to approximate clinically meaningful severity distinctions without performing diagnosis.
 
-   - Handling common forms (e.g., Alef variations, diacritics removal).
+---
 
-   - Optional stemming or lemmatization.
+## Data Generation Process
 
-4. **Vectorization / Embeddings**
+The dataset was generated using **AI-assisted text generation**, simulating self-reported mental health statements written in Arabic. Generated narratives reflect a range of emotional states, symptom expressions, and progression patterns across time.
 
-   - Classical approaches, e.g., TF-IDF, or
+Key characteristics of the data generation process include:
 
-   - Pre-trained embeddings (e.g., word2vec, fastText, or transformer embeddings).
+- Representation of **gradual symptom changes**, fluctuations, and sudden shifts
+- Variation in linguistic expression to mimic natural writing styles
+- Longitudinal consistency within individual trajectories
 
-5. **Train/Validation/Test Split**
+All data are **synthetic**, and no real individuals or online platforms were involved in data collection.
 
-   - Separate data to evaluate generalization.
+---
 
-You can expand each step with code snippets or references once your notebooks are finalized.
+## Ethical Considerations in Data Usage
+
+Using synthetic data ensures:
+
+- No exposure of personal or sensitive health information
+- No consent, privacy, or identity risks
+- Compliance with responsible AI and research ethics principles
+
+The dataset is intended strictly for **research, experimentation, and educational purposes**.
+
+---
+
+## Data Splitting Strategy
+
+To ensure robust and fair evaluation, the dataset was divided using **stratified random sampling**:
+
+- **Training set:** 70% (1,750 entries)
+- **Testing set:** 30% (750 entries)
+
+Stratification preserves proportional representation of all severity levels across both subsets, preventing class imbalance from biasing model evaluation.
+
+---
+
+## Data Preparation
+
+Prior to model training, textual inputs were prepared through:
+
+- Basic text cleaning (removal of extraneous characters)
+- Conversion into numerical representations using **embedding-based vectorization**
+- Preservation of original sentence-level semantics without manual feature engineering
+
+Details of the embedding process and feature representation are discussed in the **Models** section.
+
+---
+
+## Limitations of the Dataset
+
+While the dataset supports controlled longitudinal experimentation, it has inherent limitations:
+
+- Labels are based on simulated self-report severity rather than clinical diagnoses
+- Dialectal variation within Arabic is not explicitly modeled
+- Subtle or metaphorical expressions of distress may not be fully captured
+
+These limitations are discussed further in the **Limitations** and **Future Work** sections.

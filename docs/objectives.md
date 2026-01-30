@@ -1,41 +1,29 @@
 # Project Objectives
 
-The main objectives of the CS316 Mental Health AI Project are:
+The main objectives of the CS316 Mental Health AI Project are as follows:
 
-1. **Apply AI & NLP Techniques**
+1. **Apply AI and NLP Techniques**
+   - Use standard text preprocessing and representation methods, including cleaning and embedding-based vectorization.
+   - Train machine learning classification models to analyze mental health–related text and identify indicators of depression and anxiety.
 
-   - Use standard preprocessing (cleaning, tokenization, vectorization/embeddings)
-
-   - Train classification models for mental health-related labels (e.g., anxiety, depression).
-
-2. **Use Real and Relevant Datasets**
-
-   - Work with mental-health data containing labeled text.
-
-   - Include **Arabic** entries where possible to highlight multilingual NLP.
+2. **Use Relevant Mental Health Text Data**
+   - Work with labeled mental health–related textual data.
+   - Include **Arabic-language text** to highlight challenges and opportunities in multilingual and low-resource NLP contexts.
+   - Utilize **synthetic and curated datasets** to ensure ethical data usage and privacy preservation.
 
 3. **Evaluate Model Performance**
-
-   - Report metrics such as accuracy, precision, recall, F1-score.
-
-   - Analyze errors and discuss the reliability of predictions.
+   - Assess models using standard evaluation metrics such as accuracy, precision, recall, and F1-score.
+   - Analyze classification errors and discuss model reliability and limitations.
 
 4. **Incorporate Responsible AI Principles**
+   - Address ethical considerations including privacy, bias, fairness, and transparency.
+   - Clearly state that the system is intended as a **supportive screening and research tool**, not a diagnostic or clinical decision system.
 
-   - Address privacy, bias, fairness, and potential harms.
-
-   - Clearly state that the system is **not a diagnostic tool**.
-
-5. **Deliver Research-Style Artifacts**
-
-   - An IEEE-style research paper.
-
-   - A reproducible codebase and documented pipeline.
-
-   - A short presentation and (optional) video summarizing the work.
+5. **Deliver Research-Oriented Artifacts**
+   - Produce an IEEE-style research paper documenting the methodology and findings.
+   - Provide a reproducible codebase and a well-documented experimental pipeline.
+   - Prepare a presentation and supporting materials summarizing the project.
 
 6. **Identify Future Research Directions**
-
-   - Suggest improvements (e.g., larger datasets, deep learning models, explainability).
-   
-   - Discuss how such systems could be used responsibly in practice.
+   - Propose potential improvements such as larger datasets, domain-specific embeddings, or sequential and deep learning models.
+   - Discuss how AI-based mental health monitoring systems could be deployed responsibly in real-world contexts.

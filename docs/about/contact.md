@@ -1,11 +1,11 @@
 # Contact
 
-For questions about this project:
+For questions or inquiries related to this project:
 
-- **Repository Owner:** Layan Alnasser  
+- **Project Leader and Repository Owner:** Layan Alnasser  
 - **GitHub:** [@LayanAlnasser](https://github.com/LayanAlnasser)
 
-For academic matters:
+For academic or course-related matters:
 
 - **Course:** CS316 – Artificial Intelligence and Data Science  
 - **Instructor:** Dr. Souad Larabi-Marie-Sainte
