@@ -6,6 +6,8 @@ copyright: ©️ 2026 | Layan Abdualaziz Alnasser · All rights reserved
 theme:
   name: material
   language: en
+  logo: material/brain
+
   features:
     - navigation.tabs
     - navigation.sections
