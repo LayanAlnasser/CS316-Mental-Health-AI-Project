@@ -1,6 +1,7 @@
 site_name: CS316 Mental Health AI Project
 site_description: NLP-based Mental Health Classification Research Project
 site_author: Layan Alnasser
+copyright: ©️ 2026 | Layan Abdualaziz Alnasser · All rights reserved
 
 theme:
   name: material
