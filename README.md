@@ -103,6 +103,21 @@ The system is intended for **research, education, and awareness only** and must 
 - Python 3.9 or later
 - pip package manager
 
+---
+
+## © Copyright
+
+© 2026 **Layan Alanasser**. All rights reserved.
+
+This repository and its contents, including source code, documentation, and related materials, are the intellectual property of the author unless otherwise stated.
+
+You may view, clone, and fork this repository for **personal and educational purposes** only.  
+Redistribution, modification, or commercial use of this material is not permitted without prior written permission.
+
+Proper attribution must be given if any part of this work is referenced or adapted.
+
+---
+
 ### Setup
 
 ```bash
