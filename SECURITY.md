@@ -14,7 +14,7 @@ The following versions of this project are currently supported with security upd
 If you discover a security vulnerability, please report it responsibly.
 
 ### How to report
-- Email: **security@shoug-tech.com**  
+- Email: **Layanaalnasser@gmail.com**  
 
 ### What to include
 - A clear description of the vulnerability
