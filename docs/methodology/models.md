@@ -1,90 +1,135 @@
+---
+hide:
+  - toc
+---
+
 # Models and Training
 
-This project employs a **dual-model machine learning architecture** to independently assess **depression** and **anxiety severity** from Arabic text. The design prioritizes interpretability, robustness, and ethical deployment over purely black-box performance.
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+## Dual-Model Severity Classification Framework
+
+The system employs a dual-model architecture to independently predict depression and anxiety severity from Arabic text.  
+
+The design prioritizes robustness, interpretability, and reproducibility while maintaining clear non-clinical boundaries.
+
+</div>
+</div>
 
 ---
 
-## Model Architecture
+## 1. Model Architecture
 
-Two independent classification models are trained:
+Two independent multi-class classifiers are trained:
 
-- **Depression Severity Prediction Model**
-- **Anxiety Severity Prediction Model**
+- Depression Severity Prediction Model  
+- Anxiety Severity Prediction Model  
 
-Each model predicts severity on a **four-point ordinal scale**:
+Each model predicts severity on a four-level ordinal scale:
 
 | Score | Severity |
-|-----|----------|
+|------:|----------|
 | 0 | None |
 | 1 | Mild |
 | 2 | Moderate |
 | 3 | Severe |
 
-The conditions are modeled separately to allow each classifier to learn condition-specific linguistic and semantic patterns.
+Independent modeling enables each classifier to learn condition-specific semantic patterns without conflating overlapping symptom expressions.
 
 ---
 
-## Text Representation
+## 2. Text Representation
 
-All textual inputs are transformed into numerical representations using **embedding-based vectorization**.
+All Arabic text inputs are transformed into dense numerical vectors using embedding-based representation learning.
 
-- **Embedding Model:** EmbeddingGemma-300M (Google)
-- **Embedding Dimension:** 768
-- **Language Support:** Multilingual, including Arabic
+### Embedding Model
 
-The embedding model captures semantic and contextual information from Arabic text without manual feature engineering, making it well-suited for mental health narrative analysis.
+- Model: EmbeddingGemma-300M  
+- Output dimension: 768  
+- Language coverage: Multilingual with Arabic support  
 
----
+Each text entry is mapped to a 768-dimensional vector in semantic space, preserving contextual and syntactic relationships without manual feature engineering.
 
-## Classification Model
-
-### Support Vector Machine (SVM)
-
-Support Vector Machines are used as the primary classification algorithm due to their strong performance on high-dimensional feature spaces and their suitability for limited dataset sizes.
-
-Key characteristics:
-- Effective handling of dense embedding vectors
-- Strong generalization performance
-- Interpretable decision boundaries compared to deep neural networks
-
-### Kernel Selection
-
-The **Radial Basis Function (RBF)** kernel is used to enable non-linear decision boundaries. This choice is motivated by:
-
-- The semantic complexity of mental health language
-- Morphological richness and variability in Arabic text
-- The need to separate overlapping severity classes
+This representation reduces sparsity compared to traditional bag-of-words or TF-IDF methods and supports non-linear decision boundaries.
 
 ---
 
-## Training Procedure
+## 3. Classification Algorithm
 
-The training workflow follows a structured and reproducible process:
+### Support Vector Machine
 
-1. Load the labeled synthetic Arabic text dataset.
-2. Convert text entries into embedding vectors using the embedding model.
-3. Split data into training and testing sets using stratified sampling.
-4. Train separate SVM models for depression and anxiety severity.
-5. Optimize hyperparameters (e.g., regularization parameter and kernel settings).
-6. Evaluate performance using held-out test data.
-7. Serialize trained models for reuse and deployment.
+Support Vector Machines are used as the primary classification algorithm due to their effectiveness in high-dimensional embedding spaces and strong generalization properties.
 
-Trained models are stored as serialized artifacts (e.g., `.pkl` files) to support reproducibility and application integration.
+For a training set \((x_i, y_i)\), SVM seeks a decision boundary that maximizes the margin between classes while minimizing classification error.
 
----
+The optimization objective balances:
 
-## Design Considerations
+- Margin maximization  
+- Regularization strength  
 
-- **Non-diagnostic intent:** Models are designed to support screening and monitoring, not clinical diagnosis.
-- **Interpretability:** Classical machine learning models are preferred over deep neural networks to reduce opacity.
-- **Ethical alignment:** Independent modeling avoids conflating anxiety and depression while acknowledging comorbidity in analysis.
+This balance improves generalization performance on unseen data.
 
 ---
 
-## Limitations
+### Kernel Selection: Radial Basis Function (RBF)
 
-- Sentence-level classification does not explicitly incorporate prior user context during prediction.
-- Embeddings are not fine-tuned on mental health–specific Arabic corpora.
-- Temporal patterns are modeled post-prediction rather than during classification.
+The RBF kernel enables non-linear separation in embedding space.
 
-These limitations are addressed further in the **Limitations** and **Future Work** sections.
+Motivation for using RBF:
+
+- Semantic overlap between adjacent severity levels  
+- Non-linear linguistic boundaries  
+- Morphological richness of Arabic  
+
+The kernel maps input vectors into a higher-dimensional feature space where linear separation becomes feasible.
+
+---
+
+## 4. Training Procedure
+
+The training workflow follows a structured pipeline:
+
+1. Load synthetic labeled dataset  
+2. Generate 768-dimensional embeddings for each entry  
+3. Perform stratified 70/30 train–test split  
+4. Train separate SVM models for depression and anxiety  
+5. Tune hyperparameters such as regularization parameter \(C\) and kernel coefficient \(\gamma\)  
+6. Evaluate on held-out test data  
+7. Serialize trained models for reuse  
+
+Hyperparameter selection is performed to optimize generalization performance rather than training accuracy.
+
+---
+
+## 5. Reproducibility and Deployment
+
+- Stratified sampling preserves severity balance  
+- Trained models are stored as serialized `.pkl` artifacts  
+- The embedding pipeline is deterministic for identical inputs  
+- Evaluation is performed on a fixed held-out test set  
+
+This ensures consistent and reproducible results.
+
+---
+
+## 6. Design Rationale
+
+The architecture reflects deliberate trade-offs:
+
+- Classical ML is preferred over deep sequence models to improve interpretability and reduce opacity.  
+- Independent classifiers avoid conflating depression and anxiety patterns.  
+- Embedding-based features reduce reliance on handcrafted linguistic rules.  
+- The framework remains computationally lightweight and deployable without GPU acceleration.
+
+---
+
+## 7. Known Constraints
+
+- Predictions are generated at the sentence level without sequence-aware modeling.  
+- Temporal relationships are handled through post-prediction alert logic rather than integrated sequential learning.  
+- Embeddings are not fine-tuned on domain-specific mental health corpora.  
+
+These constraints inform future extensions toward sequence modeling and domain adaptation.
+
+---

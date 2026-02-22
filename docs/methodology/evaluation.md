@@ -1,96 +1,143 @@
+---
+hide:
+  - toc
+---
+
 # Evaluation Methodology
 
-This section describes the evaluation strategy used to assess the performance and reliability of the proposed mental health classification models. The evaluation focuses on both **quantitative performance metrics** and **robustness across severity levels**.
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+## Quantitative and Class-Level Assessment Framework
+
+This section describes the evaluation protocol used to assess the predictive performance and robustness of the dual-model framework for depression and anxiety severity classification.
+
+The evaluation emphasizes both aggregate performance metrics and detailed class-level behavior.
+
+</div>
+</div>
 
 ---
 
 ## Evaluation Objectives
 
-The primary goals of the evaluation are to:
+The evaluation is designed to:
 
-- Measure the accuracy and reliability of depression and anxiety severity predictions
-- Ensure balanced performance across all severity classes
-- Identify error patterns and model limitations
-- Support fair and transparent comparison between models
+- Quantify classification performance across all severity levels  
+- Assess robustness for higher-severity cases  
+- Examine ordinal boundary confusion  
+- Compare performance between depression and anxiety models  
+- Ensure reproducibility and transparent reporting  
 
 ---
 
-## Train–Test Split
+## Train–Test Partitioning
 
-The dataset was divided using **stratified random sampling** to preserve the distribution of severity levels across subsets:
+The dataset was divided using **stratified random sampling** to preserve severity-level proportions:
 
-- **Training set:** 70% (1,750 text entries)
-- **Testing set:** 30% (750 text entries)
+- Training set: 1,750 entries (70 percent)  
+- Testing set: 750 entries (30 percent)  
 
-Stratification ensures that all severity categories (none, mild, moderate, severe) are proportionally represented in both sets, reducing evaluation bias.
+Stratification ensures that none, mild, moderate, and severe categories are proportionally represented in both subsets, reducing class imbalance bias.
+
+All reported metrics are computed exclusively on the held-out test set.
 
 ---
 
 ## Evaluation Metrics
 
-Model performance was assessed using standard multi-class classification metrics:
+Performance was assessed using standard multi-class classification metrics:
 
-- **Accuracy** – Overall correctness of predictions
-- **Precision** – Proportion of correctly predicted positive instances per class
-- **Recall** – Ability of the model to correctly identify instances of each class
-- **F1-score** – Harmonic mean of precision and recall
+- **Accuracy**: Overall proportion of correct predictions  
+- **Precision (per class)**: True positives divided by predicted positives  
+- **Recall (per class)**: True positives divided by actual positives  
+- **F1-score (per class)**: Harmonic mean of precision and recall  
 
-Both **macro-averaged** and **weighted** metrics were reported to account for class balance and overall performance.
+To provide balanced evaluation:
 
----
+- **Macro-average metrics** treat all classes equally  
+- **Weighted-average metrics** account for class support  
 
-## Class-Level Analysis
-
-In addition to aggregate metrics, performance was analyzed at the **class level** to assess:
-
-- Model consistency across severity levels
-- Confusion between adjacent severity classes (e.g., mild vs. moderate)
-- Sensitivity to higher-severity cases
-
-This analysis is critical in mental health applications, where borderline cases are common and severity distinctions are gradual rather than discrete.
+Both reporting styles are included to ensure fair interpretation across severity levels.
 
 ---
 
-## Confusion Matrix Analysis
+## Class-Level Performance Analysis
 
-Confusion matrices were used to visualize prediction behavior and identify misclassification patterns.  
-Particular attention was given to:
+Given the ordinal nature of severity levels, analysis focused on:
 
-- Misclassifications between neighboring severity categories
-- False positives and false negatives in higher severity classes
-- Overall diagonal dominance indicating correct predictions
+- Confusion between adjacent categories such as moderate and severe  
+- Stability in identifying higher-risk classes  
+- Rare extreme misclassifications such as severe predicted as none  
 
----
-
-## ROC and AUC Analysis
-
-Receiver Operating Characteristic (ROC) curves and **Area Under the Curve (AUC)** scores were computed for each severity class using a one-vs-rest approach.
-
-This analysis provides insight into:
-
-- The model’s ability to distinguish between severity levels
-- Discriminative power across classes
-- Stability of predictions under varying decision thresholds
+Because mental health severity exists on a continuum, minor overlap between neighboring classes is expected and does not necessarily indicate instability.
 
 ---
 
-## Model Comparison
+## Confusion Matrix Examination
 
-Separate models were trained and evaluated for:
+Confusion matrices were analyzed to visualize prediction distributions.
 
-- **Depression severity prediction**
-- **Anxiety severity prediction**
+Key interpretation criteria:
 
-Performance metrics were compared to assess relative difficulty and variability in classifying each condition. Observed differences are discussed in the Results section.
+- Strong diagonal dominance indicates reliable class separation  
+- Off-diagonal concentration near adjacent classes reflects ordinal boundary overlap  
+- Minimal severe-to-none misclassification supports high-risk detection reliability  
 
 ---
 
-## Limitations of the Evaluation
+## ROC and AUC Evaluation
 
-While the evaluation provides strong quantitative evidence, it is subject to limitations:
+Receiver Operating Characteristic curves were computed using a **one-vs-rest strategy** for each severity class.
 
-- Labels are based on simulated self-reports rather than clinical ground truth
-- Evaluation is performed at the sentence level without temporal dependency modeling
-- Results may not generalize directly to real-world clinical settings
+The **Area Under the Curve (AUC)** measures discriminative ability independent of a fixed decision threshold.
 
-These limitations are further discussed in the **Limitations** and **Future Work** sections.
+AUC analysis provides:
+
+- Class-wise separability insight  
+- Comparative difficulty between depression and anxiety models  
+- Stability across varying classification thresholds  
+
+---
+
+## Dual-Model Comparison
+
+Separate SVM classifiers were trained for:
+
+- Depression severity  
+- Anxiety severity  
+
+Comparative analysis evaluates:
+
+- Relative performance across equivalent severity classes  
+- Sensitivity to higher-severity cases  
+- Differences in boundary ambiguity  
+
+Observed performance differences are discussed in the Results section.
+
+---
+
+## Reproducibility Considerations
+
+- Stratified sampling ensures consistent severity distribution  
+- Hyperparameters are tuned to optimize generalization  
+- Models are serialized for consistent reuse  
+- Evaluation is performed on a fixed held-out test set  
+
+These measures support replicability and transparent review.
+
+---
+
+## Evaluation Limitations
+
+The evaluation protocol is subject to constraints:
+
+- Labels are simulated rather than clinically verified  
+- Predictions are generated at the entry level without sequence modeling  
+- Synthetic data may produce clearer separability than real-world narratives  
+
+As a result, reported performance reflects controlled experimental conditions rather than clinical validation.
+
+Further discussion appears in the **Limitations** and **Future Work** sections.
+
+---

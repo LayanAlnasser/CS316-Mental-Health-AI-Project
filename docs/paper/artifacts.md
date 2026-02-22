@@ -1,72 +1,131 @@
+---
+hide:
+  - toc
+---
+
 # Project Artifacts
 
-This section summarizes the primary artifacts produced for the CS316 Mental Health AI Project and provides references to their locations within the repository.
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+## Research Deliverables and Reproducible Outputs
+
+This section summarizes the primary artifacts generated during the development of the CS316 Mental Health AI Project.  
+
+All artifacts are structured to support transparency, reproducibility, and academic evaluation.
+
+</div>
+</div>
 
 ---
 
-## Research Paper
+## Core Research Artifacts
 
-- **IEEE-Style Paper:**  
-  - Location: `paper/paper.md`  
-  - Description: Full academic paper documenting the problem, methodology, experiments, results, ethical considerations, and conclusions.
+<div class="grid cards" markdown>
 
----
+- :material-file-document: **IEEE-Style Research Paper**
 
-## Dataset Artifacts
+  ---
+  Location: `paper/paper.md`  
+  Complete academic documentation including methodology, longitudinal alert framework, experimental results, and ethical analysis.
 
-- **Synthetic Arabic Mental Health Dataset (Excel):**  
-  - Location: `datasets/mental_health_arabic_dataset.xlsx`  
-  - Description: Synthetic longitudinal Arabic text dataset with labeled depression and anxiety severity levels.
+- :material-database: **Synthetic Longitudinal Dataset**
 
-- **Dataset Documentation:**  
-  - Location: `dataset.md`  
-  - Description: Dataset design, generation process, labeling scheme, and ethical considerations.
+  ---
+  Location: `datasets/mental_health_arabic_dataset.xlsx`  
+  2,500 Arabic text entries with depression and anxiety severity labels across simulated time progression.
 
----
+- :material-code-tags: **Trained Model Files**
 
-## Machine Learning Models
+  ---
+  Format: `.pkl` serialized models  
+  Independent SVM classifiers for depression and anxiety severity prediction.
 
-- **Trained Model Artifacts:**  
-  - Format: Serialized model files (`.pkl`)  
-  - Description: Support Vector Machine models for depression and anxiety severity prediction, saved for reuse and deployment.
+</div>
 
 ---
 
-## Documentation and Methodology
+## Methodology and Experimental Documentation
 
-- **Methodology Documentation:**  
-  - Location: `methodology/`  
-  - Contents:
-    - Data generation and preparation
-    - Model architecture and training
-    - Evaluation methodology
+<div class="grid cards" markdown>
 
-- **Results and Analysis:**  
-  - Location: `results/`  
-  - Description: Quantitative results, error analysis, and limitations.
+- :material-flask: **Methodology**
+
+  ---
+  Location: `methodology/`  
+  Covers data generation, embedding strategy, model architecture, and evaluation pipeline.
+
+- :material-chart-bar: **Results and Analysis**
+
+  ---
+  Location: `results/`  
+  Includes quantitative metrics, ROC analysis, embedding visualization, and error interpretation.
+
+- :material-alert-circle: **Limitations**
+
+  ---
+  Located within the results documentation to outline methodological and practical constraints.
+
+</div>
 
 ---
 
-## Application and Deployment
+## Deployment and Interface Artifacts
 
-- **Web Application:**  
-  - Location: `deployment/app.md`  
-  - Description: Prototype application for interactive testing of trained models.
+<div class="grid cards" markdown>
 
-- **API Documentation:**  
-  - Location: `deployment/api.md`  
-  - Description: Interface description for programmatic access to the models.
+- :material-application: **Prototype Application**
+
+  ---
+  Location: `deployment/app.md`  
+  Demonstrates severity prediction and longitudinal alert logic through an interactive interface.
+
+- :material-api: **API Interface Documentation**
+
+  ---
+  Location: `deployment/api.md`  
+  Documents programmatic access layer if implemented.
+
+- :material-download: **Installation Instructions**
+
+  ---
+  Location: `deployment/install.md`  
+  Environment setup and documentation preview guidance.
+
+</div>
 
 ---
 
 ## Presentation Materials
 
-- **Project Slides:**  
-  - Location: `paper/slides.md`  
-  - Description: Presentation slides summarizing the project for academic evaluation.
+<div class="grid cards" markdown>
+
+- :material-presentation: **Slides**
+
+  ---
+  Location: `paper/slides.md`  
+  Academic presentation summarizing research objectives, methodology, and results.
+
+- :material-folder-outline: **Supporting Artifacts**
+
+  ---
+  Location: `paper/artifacts.md`  
+  Supplementary materials and visual outputs used in evaluation.
+
+</div>
 
 ---
 
-## Reproducibility Statement
+## Reproducibility Commitment
 
-All experiments, documentation, and artifacts are organized to support reproducibility and transparent evaluation. The project is intended for **educational and research purposes only** and does not provide clinical or diagnostic functionality.
+The repository structure, dataset documentation, serialized models, and evaluation reports are organized to enable:
+
+- Replication of experiments  
+- Verification of performance metrics  
+- Inspection of modeling decisions  
+- Transparent review of ethical safeguards  
+
+This project is intended for educational and research purposes.  
+It does not provide medical diagnosis or clinical decision-making functionality.
+
+---

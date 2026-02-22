@@ -1,29 +1,130 @@
+---
+hide:
+  - toc
+---
+
 # Project Objectives
 
-The main objectives of the CS316 Mental Health AI Project are as follows:
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
 
-1. **Apply AI and NLP Techniques**
-   - Use standard text preprocessing and representation methods, including cleaning and embedding-based vectorization.
-   - Train machine learning classification models to analyze mental health–related text and identify indicators of depression and anxiety.
+## Research Goals and Technical Direction
 
-2. **Use Relevant Mental Health Text Data**
-   - Work with labeled mental health–related textual data.
-   - Include **Arabic-language text** to highlight challenges and opportunities in multilingual and low-resource NLP contexts.
-   - Utilize **synthetic and curated datasets** to ensure ethical data usage and privacy preservation.
+This project aims to design, evaluate, and document a longitudinal AI framework for depression and anxiety severity assessment in Arabic text.  
 
-3. **Evaluate Model Performance**
-   - Assess models using standard evaluation metrics such as accuracy, precision, recall, and F1-score.
-   - Analyze classification errors and discuss model reliability and limitations.
+The objectives extend beyond simple classification and focus on structured modeling, ethical deployment, and research reproducibility.
 
-4. **Incorporate Responsible AI Principles**
-   - Address ethical considerations including privacy, bias, fairness, and transparency.
-   - Clearly state that the system is intended as a **supportive screening and research tool**, not a diagnostic or clinical decision system.
+</div>
+</div>
 
-5. **Deliver Research-Oriented Artifacts**
-   - Produce an IEEE-style research paper documenting the methodology and findings.
-   - Provide a reproducible codebase and a well-documented experimental pipeline.
-   - Prepare a presentation and supporting materials summarizing the project.
+---
 
-6. **Identify Future Research Directions**
-   - Propose potential improvements such as larger datasets, domain-specific embeddings, or sequential and deep learning models.
-   - Discuss how AI-based mental health monitoring systems could be deployed responsibly in real-world contexts.
+## Core Technical Objectives
+
+<div class="grid cards" markdown>
+
+-   :material-brain: **Develop Dual Severity Models**
+
+    ---
+    Train independent Support Vector Machine classifiers for depression and anxiety severity prediction using embedding-based feature representations.
+
+-   :material-translate: **Advance Arabic NLP Research**
+
+    ---
+    Apply multilingual embedding models to Arabic text and explore challenges related to underrepresented languages in mental health NLP.
+
+-   :material-timeline: **Enable Longitudinal Monitoring**
+
+    ---
+    Move from static cross-sectional classification toward temporal modeling of mental health trajectories using structured alert logic.
+
+</div>
+
+---
+
+## Evaluation and Validation
+
+<div class="grid cards" markdown>
+
+-   :material-chart-bar: **Quantitative Performance Analysis**
+
+    ---
+    Evaluate models using accuracy, precision, recall, F1-score, and AUC metrics with stratified data splits.
+
+-   :material-magnify: **Error and Reliability Assessment**
+
+    ---
+    Analyze borderline cases and misclassifications to assess model robustness and generalization stability.
+
+</div>
+
+---
+
+## Responsible AI and Ethical Design
+
+<div class="grid cards" markdown>
+
+-   :material-shield-check: **Ethical Data Usage**
+
+    ---
+    Utilize synthetic longitudinal datasets to ensure privacy preservation and minimize sensitive data exposure.
+
+-   :material-scale-balance: **Transparency and Boundaries**
+
+    ---
+    Position the system strictly as a research-driven decision-support tool rather than a diagnostic instrument.
+
+-   :material-eye-outline: **Interpretability and Construct Validity**
+
+    ---
+    Align linguistic patterns and model behavior with established psychological indicators of depression and anxiety.
+
+</div>
+
+---
+
+## Research Deliverables
+
+<div class="grid cards" markdown>
+
+-   :material-file-document: **IEEE-Style Research Paper**
+
+    ---
+    Document methodology, experiments, results, and alert framework design.
+
+-   :material-code-tags: **Reproducible Experimental Pipeline**
+
+    ---
+    Provide structured preprocessing, embedding generation, training, and evaluation workflows.
+
+-   :material-presentation: **Technical Presentation**
+
+    ---
+    Summarize findings, contributions, and future directions in a structured academic format.
+
+</div>
+
+---
+
+## Future Research Directions
+
+<div class="grid cards" markdown>
+
+-   :material-database-plus: **Expanded Datasets**
+
+    ---
+    Incorporate real-world longitudinal data and clinical validation.
+
+-   :material-vector-polyline: **Sequential Modeling**
+
+    ---
+    Explore temporal deep learning architectures such as LSTM or transformer-based sequence models.
+
+-   :material-brain: **Domain-Specific Embeddings**
+
+    ---
+    Refine Arabic mental health embeddings to improve semantic sensitivity.
+
+</div>
+
+---

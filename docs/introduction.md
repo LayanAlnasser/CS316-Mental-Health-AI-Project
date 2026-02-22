@@ -1,35 +1,115 @@
+---
+hide:
+  - toc
+---
+
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
 # Introduction
 
-Mental health conditions such as **depression** and **anxiety** are widespread, yet frequently under-reported or detected only after symptoms become severe. Individuals often express emotional states, stress, and psychological distress through **written language**, including journals, surveys, and online narratives. This creates an opportunity for **AI-assisted text analysis** to support early awareness and longitudinal mental health monitoring.
+## Longitudinal AI-Based Monitoring for Depression and Anxiety in Arabic Text
 
-Recent advances in **Natural Language Processing (NLP)** and machine learning enable automated analysis of large volumes of textual data, making scalable mental health screening increasingly feasible. However, most existing approaches rely on **static, cross-sectional analysis**, which fails to capture gradual changes or emerging patterns over time—particularly within **Arabic-language contexts**, which remain underrepresented in mental health NLP research.
+Mental health conditions such as depression and anxiety evolve over time. Traditional assessment tools capture only isolated snapshots, often missing gradual deterioration or emerging risk signals.
 
-This project explores whether **embedding-based NLP classifiers** can effectively identify anxiety and depression severity levels from Arabic text and support **longitudinal risk monitoring** through predictive alert mechanisms. The system is developed within the context of **CS316 – Artificial Intelligence and Data Science**, with a strong emphasis on:
+This project introduces a trajectory-based AI framework that analyzes Arabic textual narratives to model severity progression and generate structured predictive alerts.
 
-- Research rigor and reproducibility  
-- Ethical and responsible use of AI  
-- Transparency, interpretability, and non-diagnostic application  
-- Societal impact and sustainability  
+</div>
+</div>
+
+---
+
+## Why This Research Matters
+
+<div class="grid cards" markdown>
+
+-   :material-timer-sand: **Mental Health is Dynamic**
+
+    ---
+    Psychological conditions fluctuate over time. Static classification fails to capture gradual changes and worsening trends.
+
+-   :material-translate: **Arabic Underrepresentation**
+
+    ---
+    Most NLP-based mental health research focuses on English datasets. Arabic remains significantly underrepresented.
+
+-   :material-chart-line: **Need for Longitudinal Modeling**
+
+    ---
+    Early detection requires modeling progression, not just isolated severity scores.
+
+</div>
+
+---
+
+## Research Objective
+
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+To develop a dual-model AI framework that independently classifies depression and anxiety severity from Arabic text and integrates a structured alert system for longitudinal risk monitoring.
+
+</div>
+</div>
+
+---
+
+## Core Contributions
+
+<div class="grid cards" markdown>
+
+-   :material-brain: **Dual Independent Classifiers**
+
+    ---
+    Separate SVM models predict depression and anxiety severity on a four-level scale.
+
+-   :material-database: **Synthetic Longitudinal Dataset**
+
+    ---
+    100 virtual participants with time-stamped Arabic entries to simulate mental health trajectories.
+
+-   :material-alert: **Three-Tier Alert System**
+
+    ---
+    - Sustained high severity  
+    - Worsening trend detection  
+    - Sudden spike alerts  
+
+-   :material-shield-check: **Responsible AI Design**
+
+    ---
+    Built as a decision-support research tool with privacy preservation and non-diagnostic boundaries.
+
+</div>
 
 ---
 
 ## Problem Statement
 
-> Can an NLP-based machine learning system reliably analyze Arabic textual narratives to classify depression and anxiety severity levels over time, while adhering to ethical constraints and supporting early awareness rather than clinical diagnosis?
+> Can an embedding-based NLP system classify depression and anxiety severity from Arabic text while modeling temporal progression and generating structured early-warning alerts within ethical constraints?
 
 ---
 
-## Scope
+## Scope of the Project
 
-The scope of this project includes:
+<div class="grid cards" markdown>
 
-- Using **synthetic and curated mental-health related Arabic text data**  
-- Applying **text embeddings** and classical machine learning models (e.g., Support Vector Machines)  
-- Evaluating model performance using standard classification metrics  
-- Designing a **longitudinal alert mechanism** based on severity trends  
-- Providing a **prototype application** for demonstration and experimentation  
-- Analyzing technical, ethical, and practical limitations  
+-   :material-code-tags: Embedding-based feature generation  
+-   :material-cog: SVM classification with RBF kernel  
+-   :material-chart-bar: Multi-class evaluation metrics  
+-   :material-timeline: Longitudinal trend analysis  
+-   :material-application: Prototype research application  
+-   :material-scale-balance: Ethical and methodological analysis  
 
-This system is intended as a **supportive screening and monitoring tool**, not a replacement for professional mental health assessment.
+</div>
 
-For a detailed breakdown of project goals, see [Project Objectives](objectives.md).
+---
+
+## Positioning
+
+This system is a research-oriented monitoring framework.  
+It does not provide medical diagnosis and does not replace clinical evaluation.
+
+It demonstrates how embedding-based NLP models can move from static classification toward structured trajectory modeling for mental health research.
+
+---

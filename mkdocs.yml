@@ -11,10 +11,16 @@ theme:
 
   features:
     - navigation.tabs
+    - navigation.tabs.sticky       
     - navigation.sections
-    - navigation.expand
+    - navigation.indexes     
+    - navigation.top
+    - navigation.path
+    - search.suggest
+    - search.highlight
+    - search.share
     - content.code.copy
-    - content.action.edit
+    - toc.follow 
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -80,6 +86,10 @@ markdown_extensions:
   - pymdownx.tasklist
   - pymdownx.highlight
   - pymdownx.magiclink
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -91,3 +101,5 @@ extra_css:
 plugins:
   - search
  
+extra_javascript:
+  - javascripts/cta-footer.js

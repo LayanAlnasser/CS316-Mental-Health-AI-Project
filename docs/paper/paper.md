@@ -1,4 +1,14 @@
+---
+hide:
+  - toc
+---
+
 # AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts
+
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+## Research Paper
 
 **Layan Alnasser (Project Leader)**  
 College of Computer and Information Sciences  
@@ -8,116 +18,155 @@ Prince Sultan University, Riyadh, Saudi Arabia
 College of Computer and Information Sciences  
 Prince Sultan University, Riyadh, Saudi Arabia  
 
+</div>
+</div>
+
 ---
 
 ## Abstract
 
-Tracking mental health through automated text analysis provides a scalable and accessible screening approach, particularly for underrepresented languages such as Arabic. This study proposes an AI-based longitudinal monitoring system for assessing depression and anxiety severity from Arabic text. A synthetic longitudinal dataset was generated to simulate realistic mental health narratives over time. Text entries were encoded using a pre-trained multilingual embedding model, producing dense semantic representations. Two independent Support Vector Machine classifiers with Radial Basis Function kernels were trained to predict severity levels on a four-point ordinal scale. In addition to static classification, the system implements predictive alert mechanisms to identify sustained high-risk patterns, worsening trends, and sudden symptom escalation. Experimental results demonstrate high classification performance across severity levels, supporting the feasibility of ethical, non-diagnostic AI-assisted mental health monitoring.
+Automated analysis of textual narratives provides a scalable approach to mental health monitoring, particularly in underrepresented linguistic contexts such as Arabic. This study presents a longitudinal AI framework for independent assessment of depression and anxiety severity from Arabic text.
 
-**Keywords:** Mental health, Depression, Anxiety, Arabic NLP, Machine learning, Text classification, Longitudinal monitoring
+A synthetic dataset comprising 2,500 time-stamped entries from 100 virtual participants was constructed to simulate symptom progression. Text entries were encoded using a multilingual embedding model producing 768-dimensional semantic representations. Two independent Support Vector Machine classifiers with Radial Basis Function kernels were trained to predict severity on a four-level ordinal scale.
+
+Beyond static classification, the framework integrates structured predictive alerts to detect sustained high-risk states, worsening trends, and sudden symptom escalation. Experimental results demonstrate strong discriminative performance across severity levels. The findings support the feasibility of embedding-based longitudinal monitoring for Arabic mental health research within clearly defined ethical and non-diagnostic boundaries.
+
+**Keywords:** Mental health, Depression, Anxiety, Arabic NLP, Support Vector Machines, Longitudinal monitoring, Responsible AI
 
 ---
 
 ## I. Introduction
 
-Mental health conditions such as depression and anxiety are widespread and often under-detected until symptoms reach critical levels. Traditional screening approaches typically rely on static, cross-sectional assessments that fail to capture gradual changes or emerging risk patterns. Given that psychological conditions evolve over time, there is a growing need for systems capable of continuous and longitudinal monitoring.
+Depression and anxiety are dynamic psychological conditions characterized by fluctuating intensity over time. Conventional screening approaches typically rely on cross-sectional assessments that capture isolated time points. Such methods limit the ability to detect gradual deterioration or emerging risk trajectories.
 
-Advances in artificial intelligence and natural language processing have enabled automated analysis of textual data, allowing emotional and cognitive patterns to be inferred from written language. Individuals frequently express mental states through text-based narratives such as journals, surveys, or online reflections. However, mental health NLP research remains limited for Arabic-language contexts, which are significantly underrepresented in existing datasets and models.
+Advances in artificial intelligence and natural language processing enable structured analysis of written narratives that reflect emotional state, cognitive burden, and psychological distress. Individuals frequently express mental health indicators through journals, surveys, and digital reflections. However, Arabic-language mental health NLP research remains limited compared to English-language resources.
 
-This project addresses these gaps by developing an AI-based system that analyzes Arabic mental health narratives over time. The system moves beyond static classification by integrating predictive alerts that identify early signs of deterioration. Importantly, the system is designed as a **supportive screening tool**, not a diagnostic instrument, and adheres to responsible AI principles.
+This study proposes a longitudinal AI framework for analyzing Arabic mental health narratives. The system independently predicts depression and anxiety severity and integrates rule-based alert logic to identify early warning signals across time. The framework is explicitly designed as a research-oriented decision-support tool and does not provide clinical diagnosis.
 
 ---
 
 ## II. Related Work
 
-Artificial intelligence has demonstrated strong potential in healthcare applications, particularly in physical health domains. Its adoption in mental health has progressed more cautiously due to ethical concerns, data sensitivity, and the complexity of psychological conditions. Existing approaches often rely on structured questionnaires or single-point evaluations, limiting their ability to model progression.
+Artificial intelligence has demonstrated success in healthcare domains, yet adoption in mental health remains cautious due to ethical concerns and data sensitivity. Many systems rely on questionnaire-based tools or single-entry classification, limiting their ability to model progression.
 
-Recent studies have explored NLP techniques for mental health analysis using social media posts, self-reported narratives, and conversational data. Deep learning models such as CNNs and LSTMs have shown success in detecting depressive content, while embedding-based representations have improved semantic understanding. However, many prior systems emphasize prediction accuracy over interpretability and ethical deployment.
+Deep learning architectures such as CNNs and LSTMs have shown effectiveness in detecting depressive language patterns. Embedding-based approaches have improved semantic representation quality compared to traditional feature engineering. However, longitudinal modeling remains limited, particularly for Arabic text.
 
-Longitudinal approaches remain relatively scarce, especially for Arabic text. This project contributes by combining embedding-based NLP with classical machine learning in a longitudinal framework, emphasizing transparency, ethical safeguards, and non-diagnostic use.
+This work contributes by combining embedding-based representation learning with classical machine learning in a structured longitudinal monitoring framework tailored to Arabic narratives, while explicitly incorporating alert logic and responsible AI safeguards.
 
 ---
 
 ## III. Methodology
 
-### A. Data Generation
+### A. Synthetic Longitudinal Dataset
 
-A synthetic longitudinal Arabic text dataset was generated to simulate mental health expressions over time. The dataset consists of 2,500 text entries representing 100 synthetic individuals, with 25 entries per individual. Each entry is annotated with depression and anxiety severity scores on a four-point ordinal scale (0: none, 1: mild, 2: moderate, 3: severe), adapted from PHQ-9 and GAD-7 guidelines.
+A synthetic dataset was generated to simulate longitudinal mental health trajectories. The dataset includes:
 
-Using synthetic data ensures privacy preservation and avoids ethical risks associated with real mental health records.
+- 2,500 Arabic text entries  
+- 100 virtual participants  
+- 25 time-ordered entries per participant  
+
+Each entry contains two independent severity labels:
+
+- Depression score from 0 to 3  
+- Anxiety score from 0 to 3  
+
+Severity levels are inspired by PHQ-9 and GAD-7 screening guidelines while remaining non-diagnostic. This design enables controlled modeling of progression while eliminating privacy risks associated with real clinical data.
+
+---
 
 ### B. Text Representation
 
-Text entries are converted into numerical vectors using a pre-trained multilingual embedding model with a 768-dimensional output space. This embedding approach captures semantic and contextual information from Arabic text without manual feature engineering.
+Each text entry is encoded using a multilingual embedding model that generates 768-dimensional dense vector representations. This embedding captures contextual and semantic information without manual feature engineering and provides compact high-dimensional inputs for classification.
 
-### C. Classification Models
+---
 
-Two independent Support Vector Machine classifiers are trained:
-- Depression Severity Prediction Model
-- Anxiety Severity Prediction Model
+### C. Dual-Model Classification Framework
 
-The models use Radial Basis Function kernels to handle non-linear class boundaries arising from linguistic variability and overlapping severity levels.
+Two independent multi-class Support Vector Machine classifiers are trained:
 
-### D. Training Procedure
+1. Depression Severity Model  
+2. Anxiety Severity Model  
 
-Data is split into training (70%) and testing (30%) sets using stratified sampling. Hyperparameters are tuned to optimize generalization performance. Trained models are serialized for reproducibility and deployment.
+Each classifier uses a Radial Basis Function kernel to capture non-linear class boundaries in embedding space. Independent modeling enables condition-specific learning while reducing interference between overlapping linguistic patterns.
+
+---
+
+### D. Training and Evaluation Protocol
+
+The dataset is partitioned using stratified sampling into:
+
+- 70 percent training data  
+- 30 percent testing data  
+
+Hyperparameters are tuned to optimize generalization performance. Evaluation metrics include accuracy, precision, recall, F1-score, and Area Under the ROC Curve. Trained models are serialized to ensure reproducibility and facilitate deployment.
 
 ---
 
 ## IV. Results and Analysis
 
-### A. Quantitative Evaluation
+### A. Classification Performance
 
-The depression severity model achieved near-perfect performance across all severity levels, with accuracy exceeding 99%. Precision, recall, and F1-scores were consistently high across classes.
+The depression severity model achieved test accuracy exceeding 99 percent with consistently high precision, recall, and F1-scores across severity classes.
 
-The anxiety severity model also demonstrated strong performance, with minor reductions in higher severity classes. Most misclassifications occurred between adjacent severity levels, reflecting the gradual nature of symptom progression.
-
-### B. Confusion Matrix Analysis
-
-Confusion matrix analysis showed strong diagonal dominance for both models. Errors were primarily limited to neighboring severity categories (e.g., moderate vs. severe), while severe cases were rarely misclassified as non-clinical.
-
-### C. ROC and AUC Analysis
-
-ROC curves and AUC scores confirmed strong discriminative ability across severity levels. Depression severity prediction achieved near-perfect AUC values, while anxiety severity prediction showed slightly lower but still robust performance in higher severity classes.
+The anxiety severity model demonstrated similarly strong performance, with modest reductions in higher severity categories. Misclassifications primarily occurred between adjacent severity levels, reflecting the ordinal nature of symptom progression.
 
 ---
 
-## V. Longitudinal Alert Mechanism
+### B. Error Characteristics
 
-To extend beyond static classification, the system implements three predictive alert types:
+Confusion matrix analysis revealed strong diagonal dominance. Errors were concentrated between moderate and severe categories, while severe cases were rarely predicted as non-clinical. This supports reliable identification of higher-risk states.
 
-1. **High Score Alerts:** Triggered when average severity ≥ 2 across recent entries  
-2. **Worsening Trend Alerts:** Triggered by consistent upward severity trends  
-3. **Sudden Spike Alerts:** Triggered by sharp increases between consecutive entries  
+---
 
-These alerts support early awareness and proactive monitoring.
+### C. ROC and AUC Analysis
+
+Receiver Operating Characteristic analysis confirms strong discriminative capability across severity levels. Depression severity prediction achieved near-perfect AUC values, while anxiety severity prediction exhibited slightly lower yet robust performance for higher severity classes.
+
+---
+
+## V. Longitudinal Alert Framework
+
+To extend beyond static prediction, the system incorporates three structured alert mechanisms:
+
+1. High Score Alert  
+   Triggered when the average severity score across recent entries is at least 2.
+
+2. Worsening Trend Alert  
+   Triggered when consistent upward progression exceeds predefined thresholds.
+
+3. Sudden Spike Alert  
+   Triggered when severity increases sharply between consecutive entries.
+
+These alerts transform individual predictions into longitudinal risk signals that support early awareness.
 
 ---
 
 ## VI. Limitations
 
-The system operates on sentence-level inputs without incorporating prior entries during classification. Embeddings are not fine-tuned on mental health–specific Arabic corpora, and dialectal variation is not explicitly modeled. Additionally, labels are based on simulated self-reports rather than clinical diagnoses.
+The framework performs entry-level classification without sequence-aware architectures. Embeddings are not fine-tuned on mental health–specific Arabic corpora, and dialectal variation is not explicitly modeled. Evaluation is conducted on synthetic data, and external clinical validation is required for real-world application.
 
 ---
 
 ## VII. Ethical and Societal Considerations
 
-This project follows responsible AI principles by using synthetic data, avoiding real personal information, and emphasizing transparency. The system is explicitly non-diagnostic and intended for research and awareness purposes only. Ethical safeguards are integrated to reduce bias, prevent misuse, and ensure societal benefit.
+Privacy-by-design principles are ensured through exclusive use of synthetic data. No personal or clinical records were collected. The system is explicitly non-diagnostic and intended for research and educational purposes. Human oversight is required for responsible interpretation of outputs.
 
 ---
 
 ## VIII. Conclusion
 
-This study demonstrates that embedding-based NLP combined with classical machine learning can effectively support longitudinal mental health monitoring in Arabic text. The integration of predictive alerts enhances practical value by enabling early risk detection. While not a substitute for clinical assessment, the system provides a strong foundation for ethical, scalable mental health support tools. Future work will focus on sequential modeling, domain-specific embeddings, and clinical validation.
+This study demonstrates that embedding-based NLP combined with classical machine learning can support structured longitudinal monitoring of depression and anxiety severity in Arabic text. The integration of predictive alerts enhances practical relevance by detecting sustained risk patterns and symptom escalation.
+
+While further validation and sequence-aware modeling are necessary, the framework provides a reproducible and ethically grounded foundation for Arabic mental health AI research.
 
 ---
 
 ## Acknowledgment
 
-This project was conducted as part of the CS316 – Artificial Intelligence and Data Science course at Prince Sultan University.
+This project was conducted as part of CS316 – Artificial Intelligence and Data Science at Prince Sultan University.
 
 ---
 
 ## References
 
-References are omitted in this draft and will follow IEEE citation standards in the final submission.
+References will be formatted according to IEEE citation standards in the final submission.

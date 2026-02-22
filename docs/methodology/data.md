@@ -1,86 +1,114 @@
+---
+hide:
+  - toc
+---
+
 # Data Generation and Preparation
 
-This project uses a **synthetic, longitudinal Arabic text dataset** designed to simulate realistic mental health expressions over time. The dataset enables controlled experimentation while preserving ethical standards related to privacy and sensitive data handling.
+<div class="home-hero" markdown>
+<div class="home-hero__text" markdown>
+
+## Synthetic Longitudinal Arabic Mental Health Dataset
+
+To enable trajectory-based experimentation while preserving ethical safeguards, this project employs a fully synthetic longitudinal dataset designed to simulate realistic mental health narratives over time.
+
+The dataset supports severity prediction and structured alert modeling without involving real clinical records.
+
+</div>
+</div>
 
 ---
 
-## Dataset Design
+## Dataset Structure
 
-The dataset consists of **2,500 Arabic text entries** representing mental health–related narratives. These entries simulate the experiences of **100 synthetic individuals**, with **25 time-ordered entries per individual**, enabling longitudinal analysis.
+The dataset contains **2,500 Arabic text entries** corresponding to **100 synthetic participants**, each with **25 time-ordered entries**. This structure enables modeling of symptom progression across multiple time points.
 
-Each text entry is independently annotated with two severity labels:
+Each entry includes:
 
-- **Depression severity**
-- **Anxiety severity**
+- `Participant_ID`
+- `Date` (time index for longitudinal tracking)
+- `Arabic_Text`
+- `Depression_Score`
+- `Anxiety_Score`
 
-Severity levels follow a four-point ordinal scale:
+Severity labels follow a four-level ordinal scale:
 
-| Score | Severity Level |
-|-----|---------------|
+| Score | Severity |
+|------:|----------|
 | 0 | None |
 | 1 | Mild |
 | 2 | Moderate |
 | 3 | Severe |
 
-The labeling scheme is adapted from established clinical screening instruments, including **PHQ-9** and **GAD-7**, to approximate clinically meaningful severity distinctions without performing diagnosis.
+The labeling scheme is inspired by established screening instruments such as PHQ-9 and GAD-7. The scores approximate clinically meaningful distinctions while remaining non-diagnostic.
 
 ---
 
-## Data Generation Process
+## Data Generation Methodology
 
-The dataset was generated using **AI-assisted text generation**, simulating self-reported mental health statements written in Arabic. Generated narratives reflect a range of emotional states, symptom expressions, and progression patterns across time.
+Text entries were generated using AI-assisted text synthesis to simulate self-reported mental health narratives in Arabic.
 
-Key characteristics of the data generation process include:
+Generation was guided by the following design principles:
 
-- Representation of **gradual symptom changes**, fluctuations, and sudden shifts
-- Variation in linguistic expression to mimic natural writing styles
-- Longitudinal consistency within individual trajectories
+- Representation of gradual symptom progression  
+- Inclusion of fluctuations and episodic worsening  
+- Consistency within participant-level trajectories  
+- Variation in linguistic tone and intensity across severity levels  
 
-All data are **synthetic**, and no real individuals or online platforms were involved in data collection.
+The synthetic approach ensures controlled class distribution while preserving ethical integrity.
+
+No real individuals, social media content, or clinical records were used.
 
 ---
 
-## Ethical Considerations in Data Usage
+## Ethical Rationale for Synthetic Design
 
-Using synthetic data ensures:
+Using synthetic data provides:
 
-- No exposure of personal or sensitive health information
-- No consent, privacy, or identity risks
-- Compliance with responsible AI and research ethics principles
+- Privacy preservation by design  
+- Elimination of identifiable health information  
+- Avoidance of consent-related risks  
+- Controlled experimentation without harm  
 
-The dataset is intended strictly for **research, experimentation, and educational purposes**.
+This dataset is intended exclusively for research and educational purposes.
 
 ---
 
 ## Data Splitting Strategy
 
-To ensure robust and fair evaluation, the dataset was divided using **stratified random sampling**:
+To evaluate model generalization fairly, the dataset was partitioned using **stratified random sampling**:
 
-- **Training set:** 70% (1,750 entries)
-- **Testing set:** 30% (750 entries)
+- Training set: 1,750 entries (70 percent)  
+- Testing set: 750 entries (30 percent)  
 
-Stratification preserves proportional representation of all severity levels across both subsets, preventing class imbalance from biasing model evaluation.
-
----
-
-## Data Preparation
-
-Prior to model training, textual inputs were prepared through:
-
-- Basic text cleaning (removal of extraneous characters)
-- Conversion into numerical representations using **embedding-based vectorization**
-- Preservation of original sentence-level semantics without manual feature engineering
-
-Details of the embedding process and feature representation are discussed in the **Models** section.
+Stratification preserves proportional representation of all severity levels across subsets, ensuring balanced evaluation across classes.
 
 ---
 
-## Limitations of the Dataset
+## Text Preparation and Feature Representation
 
-While the dataset supports controlled longitudinal experimentation, it has inherent limitations:
+Minimal preprocessing was applied to preserve semantic richness:
 
-- Labels are based on simulated self-report severity rather than clinical diagnoses
-- Dialectal variation within Arabic is not explicitly modeled
-- Subtle or metaphorical expressions of distress may not be fully captured
+- Removal of extraneous formatting artifacts  
+- Retention of original sentence-level structure  
 
-These limitations are discussed further in the **Limitations** and **Future Work** sections.
+Rather than manual feature engineering, text entries were converted into dense numerical vectors using a multilingual embedding model with 768-dimensional output.
+
+This embedding-based approach captures contextual semantics and reduces reliance on handcrafted linguistic features.
+
+Further details of the embedding architecture and classification framework are provided in the **Models** section.
+
+---
+
+## Dataset Limitations
+
+Despite supporting controlled longitudinal experimentation, the dataset has important constraints:
+
+- Severity labels are simulated rather than clinically validated  
+- Dialectal and colloquial diversity within Arabic is not explicitly modeled  
+- Implicit, metaphorical, or culturally nuanced expressions may not be fully represented  
+- Synthetic distributions may exhibit clearer class boundaries than real-world data  
+
+These constraints limit direct generalization and motivate future real-world validation.
+
+---
