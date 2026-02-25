@@ -8,7 +8,7 @@ theme:
   language: en
   icon:
     logo: material/brain
-
+  favicon: logo.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky       
@@ -87,8 +87,8 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.magiclink
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+      #emoji_index: !!python/name:material.extensions.emoji.twemoji
+      #emoji_generator: !!python/name:material.extensions.emoji.to_svg 
 
 extra:
   social:
