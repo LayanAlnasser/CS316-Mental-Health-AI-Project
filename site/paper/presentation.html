@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based Mental Health Tracking Research Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .header .meta {
+            font-size: 0.95em;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+        
+        .authors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .author {
+            font-size: 0.9em;
+        }
+        
+        .author strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .section h4 {
+            color: #555;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight-box.warning {
+            border-left-color: #e74c3c;
+            background: #fef5f5;
+        }
+        
+        .highlight-box.success {
+            border-left-color: #27ae60;
+            background: #f0f9f4;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            font-size: 0.9em;
+            opacity: 0.95;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        table thead {
+            background: #667eea;
+            color: white;
+        }
+        
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        table tbody tr:hover {
+            background: #f5f7fa;
+        }
+        
+        table tbody tr:nth-child(even) {
+            background: #fafbfc;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .alert-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .alert-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .alert-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .alert-card h4 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .alert-card .trigger {
+            background: #f0f3ff;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .keyword {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .toc > ul > li {
+            margin-bottom: 12px;
+        }
+        
+        .toc a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .toc a:hover {
+            background: #667eea;
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .toc .toc-section {
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        .toc ul ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .toc ul ul li {
+            margin-bottom: 6px;
+        }
+        
+        .toc ul ul a {
+            font-size: 0.95em;
+            font-weight: normal;
+        }
+        
+        .supervisor {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .supervisor strong {
+            font-size: 1.1em;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .toc {
+                page-break-after: always;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .authors {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toc {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts</h1>
+            <div class="meta">
+                <p><strong>Institution:</strong> Prince Sultan University, Riyadh, Saudi Arabia</p>
+                <p><strong>College:</strong> Computer and Information Sciences</p>
+            </div>
+            <div class="authors">
+                <div class="author">
+                    <strong>Layan Alnasser</strong>
+                    <span>Researcher</span>
+                </div>
+                <div class="author">
+                    <strong>Hessah Alsubaiee</strong>
+                    <span>Researcher</span>
+                </div>
+                <div class="author">
+                    <strong>Leen Almunifi</strong>
+                    <span>Researcher</span>
+                </div>
+                <div class="author">
+                    <strong>Norah Alhadyani</strong>
+                    <span>Researcher</span>
+                </div>
+                <div class="author">
+                    <strong>Mashael Alsedais</strong>
+                    <span>Researcher</span>
+                </div>
+            </div>
+            <div class="supervisor">
+                <strong>Supervised by:</strong><br>
+                <span>Dr. Souad Larabi-Marie-Sainte </span><br>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#abstract" class="toc-section">Abstract</a></li>
+                    <li><a href="#overview" class="toc-section">1. Research Overview</a>
+                        <ul>
+                            <li><a href="#problem">The Problem</a></li>
+                            <li><a href="#solution">The Solution</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#related-work" class="toc-section">2. Related Work</a></li>
+                    <li><a href="#methodology" class="toc-section">3. Methodology</a>
+                        <ul>
+                            <li><a href="#dataset">Dataset</a></li>
+                            <li><a href="#feature-engineering">Feature Engineering</a></li>
+                            <li><a href="#models">Classification Models</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#results" class="toc-section">4. Results & Performance</a>
+                        <ul>
+                            <li><a href="#depression-results">Depression Model Results</a></li>
+                            <li><a href="#anxiety-results">Anxiety Model Results</a></li>
+                            <li><a href="#roc-auc">ROC Curves & AUC Scores</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#alerts" class="toc-section">5. Alert System</a></li>
+                    <li><a href="#findings" class="toc-section">6. Key Findings</a>
+                        <ul>
+                            <li><a href="#model-comparison">Model Comparison</a></li>
+                            <li><a href="#confusion-matrix">Confusion Matrix Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#limitations" class="toc-section">7. Limitations</a>
+                        <ul>
+                            <li><a href="#technical-limitations">Technical Limitations</a></li>
+                            <li><a href="#clinical-limitations">Clinical & Practical Limitations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ethics" class="toc-section">8. Ethical Considerations</a></li>
+                    <li><a href="#lessons" class="toc-section">9. Lessons Learned</a></li>
+                    <li><a href="#conclusion" class="toc-section">10. Conclusion</a>
+                        <ul>
+                            <li><a href="#future-work">Future Work</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section" id="abstract">
+                <h2>Abstract</h2>
+                <p>Tracking mental health via automated text analysis is an efficient screening solution due to its scalability and accessibility, especially for the Arabic language which is underrepresented. This study proposes a dual-model machine learning system for assessing depression and anxiety severity from Arabic text.</p>
+                <div class="keywords">
+                    <span class="keyword">Mental Health</span>
+                    <span class="keyword">Depression</span>
+                    <span class="keyword">Anxiety</span>
+                    <span class="keyword">Arabic NLP</span>
+                    <span class="keyword">Machine Learning</span>
+                    <span class="keyword">Text Classification</span>
+                    <span class="keyword">Automated Screening</span>
+                </div>
+            </div>
+            
+            <div class="section" id="related-work">
+                <h2>2. Related Work</h2>
+                
+                <h3>AI in Healthcare</h3>
+                <p>Artificial Intelligence has been widely adopted in various domains, particularly in physical health. Its ability to rapidly analyze large-scale data and recognize complex patterns has enabled effective disease detection and monitoring. Despite these advancements, the adoption of AI in mental health has progressed more slowly due to ethical concerns, data sensitivity, and the inherent complexity of psychological conditions.</p>
+                
+                <h3>AI Applications in Mental Health</h3>
+                <p>AI enables new approaches to mental illness analysis by integrating patient information from diverse sources such as electronic medical records, self-reported questionnaires, and social media content. Within the mental health domain, AI applications are commonly categorized into three main areas:</p>
+                <ul>
+                    <li><strong>Digital Phenotyping:</strong> Collecting behavioral data through sensors, mobile devices, speech signals, and interaction patterns to infer changes in mood and mental state</li>
+                    <li><strong>Natural Language Processing:</strong> Analyzing text or speech to identify emotional and cognitive indicators</li>
+                    <li><strong>Conversational Agents:</strong> Chatbots applying human-computer interaction principles to support dialogue-based mental health applications</li>
+                </ul>
+                
+                <h3>Machine Learning Approaches</h3>
+                <p>Tree-based models such as classification and regression trees have demonstrated strong effectiveness in mental health-related tasks due to their ability to handle both continuous and categorical features, perform automatic feature selection, and provide interpretable results. Previous research has shown that AI-based models can recognize mental health risk patterns across diverse data sources.</p>
+                
+                <div class="highlight-box">
+                    <h4>Notable Research Examples</h4>
+                    <ul>
+                        <li>Systems predicting suicide attempts up to 24 hours before occurrence by analyzing large-scale datasets, with performance exceeding expert clinical judgment in certain scenarios</li>
+                        <li>AI-based systems continuously monitoring dialogue to identify depression-related language patterns and dynamically assess risk levels</li>
+                        <li>Deep learning models (CNNs and LSTMs) successfully classifying depressive content in social media text</li>
+                    </ul>
+                </div>
+                
+                <h3>Evolution of Research Approaches</h3>
+                <p>Earlier studies primarily relied on structured, cross-sectional datasets composed of predefined demographic, socioeconomic, and behavioral variables. More recent research has adopted longitudinal designs using repeated measurements to better understand mental health progression over time. Growing attention has been directed toward text-based data, as linguistic patterns have been shown to reflect emotional well-being and symptoms of mental disorders.</p>
+                
+                <h3>This Study's Contribution</h3>
+                <p>Building on this body of research, the current project focuses on leveraging text-based narrative analysis for mental health risk detection while emphasizing ethical use and interpretability. Unlike many previous studies that prioritize model accuracy or direct diagnostic classification, this project explicitly positions artificial intelligence as a supportive tool rather than a diagnostic system. The goal is not to replace clinical assessment, but to assist in identifying potential risk signals from narrative text that may support early awareness and intervention.</p>
+            </div>
+            
+            <div class="section" id="overview">
+                <h2>1. Research Overview</h2>
+                <div class="highlight-box success">
+                    <h3>Key Innovation</h3>
+                    <p>This research addresses a critical gap in mental health monitoring by developing an AI-based longitudinal tracking system that evaluates behavioral and linguistic indicators over time, identifies early indicators of decline, and promptly notifies users when alarming patterns appear.</p>
+                </div>
+                
+                <h3 id="problem">The Problem</h3>
+                <p>Most existing mental health research relies on static, cross-sectional data collected at a single point in time, which restricts the ability to capture gradual or sudden changes in anxiety and depression levels. This often results in delayed diagnosis until individuals reach critical stages.</p>
+                
+                <h3 id="solution">The Solution</h3>
+                <p>An AI-based longitudinal monitoring system that moves mental health analysis from static classification to trajectory-based evaluation using high-fidelity, AI-generated synthetic longitudinal data that precisely replicates actual psychological patterns.</p>
+            </div>
+            
+            <div class="section" id="methodology">
+                <h2>3. Methodology</h2>
+                
+                <h3 id="dataset">Dataset</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">2,500</div>
+                        <div class="label">Arabic Text Entries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">100</div>
+                        <div class="label">Individuals Tracked</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">25</div>
+                        <div class="label">Entries per Individual</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">70/30</div>
+                        <div class="label">Train/Test Split</div>
+                    </div>
+                </div>
+                
+                <p>The dataset comprises synthetically generated Arabic text entries created through AI-assisted generation (Claude). Each entry is independently annotated with depression and anxiety severity scores on a four-point ordinal scale:</p>
+                <ul>
+                    <li><strong>0:</strong> None</li>
+                    <li><strong>1:</strong> Mild</li>
+                    <li><strong>2:</strong> Moderate</li>
+                    <li><strong>3:</strong> Severe</li>
+                </ul>
+                
+                <h3 id="feature-engineering">Technical Architecture</h3>
+                
+                <h4>Feature Engineering</h4>
+                <div class="highlight-box">
+                    <p><strong>EmbeddingGemma-300M Model (Google)</strong></p>
+                    <ul>
+                        <li>768-dimensional output embedding</li>
+                        <li>Multilingual support for 100+ languages including Arabic</li>
+                        <li>Transforms natural language into numerical vector representations</li>
+                        <li>Captures semantic and contextual information</li>
+                    </ul>
+                </div>
+                
+                <h4 id="models">Classification Models</h4>
+                <p>The system implements a dual-model architecture:</p>
+                <ul>
+                    <li><strong>Depression Severity Prediction Model</strong></li>
+                    <li><strong>Anxiety Severity Prediction Model</strong></li>
+                </ul>
+                
+                <p>Both models use Support Vector Machine (SVM) with Radial Basis Function (RBF) kernel to capture non-linear class boundaries arising from the morphological richness and sparsity of Arabic text features.</p>
+            </div>
+            
+            <div class="section" id="results">
+                <h2>4. Results & Performance</h2>
+                
+                <h3 id="depression-results">Depression Score Prediction Model</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">99.87%</div>
+                        <div class="label">Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">1.00</div>
+                        <div class="label">Precision</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">1.00</div>
+                        <div class="label">Recall</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">1.00</div>
+                        <div class="label">F1-Score</div>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1-Score</th>
+                            <th>Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (None)</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>256</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Mild)</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>203</td>
+                        </tr>
+                        <tr>
+                            <td>2 (Moderate)</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>166</td>
+                        </tr>
+                        <tr>
+                            <td>3 (Severe)</td>
+                            <td>0.99</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>125</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 id="anxiety-results">Anxiety Score Prediction Model</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">98.93%</div>
+                        <div class="label">Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">0.99</div>
+                        <div class="label">Precision</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">0.99</div>
+                        <div class="label">Recall</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">0.99</div>
+                        <div class="label">F1-Score</div>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1-Score</th>
+                            <th>Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (None)</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>260</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Mild)</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>1.00</td>
+                            <td>204</td>
+                        </tr>
+                        <tr>
+                            <td>2 (Moderate)</td>
+                            <td>0.97</td>
+                            <td>0.98</td>
+                            <td>0.98</td>
+                            <td>170</td>
+                        </tr>
+                        <tr>
+                            <td>3 (Severe)</td>
+                            <td>0.97</td>
+                            <td>0.96</td>
+                            <td>0.97</td>
+                            <td>116</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 id="roc-auc">ROC Curves & AUC Scores</h3>
+                
+                <h4>Depression Model AUC</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>AUC Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (None)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Mild)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>2 (Moderate)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>3 (Severe)</td>
+                            <td>0.99</td>
+                        </tr>
+                        <tr style="background: #667eea; color: white; font-weight: bold;">
+                            <td>Macro-Average</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr style="background: #764ba2; color: white; font-weight: bold;">
+                            <td>Weighted-Average</td>
+                            <td>1.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Anxiety Model AUC</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>AUC Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (None)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Mild)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>2 (Moderate)</td>
+                            <td>0.98</td>
+                        </tr>
+                        <tr>
+                            <td>3 (Severe)</td>
+                            <td>0.97</td>
+                        </tr>
+                        <tr style="background: #667eea; color: white; font-weight: bold;">
+                            <td>Macro-Average</td>
+                            <td>0.99</td>
+                        </tr>
+                        <tr style="background: #764ba2; color: white; font-weight: bold;">
+                            <td>Weighted-Average</td>
+                            <td>0.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="highlight-box">
+                    <h4>AUC Interpretation</h4>
+                    <ul>
+                        <li><strong>Depression Model:</strong> Achieves near-perfect discrimination (AUC = 1.00) for all severity levels</li>
+                        <li><strong>Anxiety Model:</strong> Maintains highly effective discrimination (AUC ≥ 0.97) across all classes</li>
+                        <li>Minor reduction in higher severity anxiety classes suggests slightly more overlap in feature space</li>
+                        <li>Both models demonstrate excellent ability to distinguish between severity levels</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="alerts">
+                <h2>5. Alert System</h2>
+                <p>The system implements a three-tier alert mechanism for proactive mental health monitoring:</p>
+                
+                <div class="alert-types">
+                    <div class="alert-card">
+                        <h4>1. High Score Alerts</h4>
+                        <div class="trigger">
+                            <strong>Trigger:</strong> Average score ≥ 2 over most recent 3 entries
+                        </div>
+                        <p><strong>Rationale:</strong> Sustained moderate-to-severe symptoms indicate persistent mental health concerns requiring attention.</p>
+                        <p><strong>Clinical Significance:</strong> Scores of 2 (moderate) or 3 (severe) represent clinically significant symptom levels.</p>
+                    </div>
+                    
+                    <div class="alert-card">
+                        <h4>2. Worsening Trend Alerts</h4>
+                        <div class="trigger">
+                            <strong>Trigger:</strong> Average increase > 0.5 points over 3 consecutive entries
+                        </div>
+                        <p><strong>Rationale:</strong> Progressive worsening suggests deteriorating mental health that may require intervention before reaching critical levels.</p>
+                        <p><strong>Clinical Significance:</strong> Early detection of declining mental health enables proactive intervention.</p>
+                    </div>
+                    
+                    <div class="alert-card">
+                        <h4>3. Sudden Spike Alerts</h4>
+                        <div class="trigger">
+                            <strong>Trigger:</strong> Increase of ≥ 2 points between consecutive entries
+                        </div>
+                        <p><strong>Rationale:</strong> Rapid deterioration may indicate acute crisis or triggering events.</p>
+                        <p><strong>Clinical Significance:</strong> Sudden changes require immediate attention as they may represent crisis situations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="findings">
+                <h2>6. Key Findings</h2>
+                
+                <div class="highlight-box success">
+                    <h3>Outstanding Performance</h3>
+                    <ul>
+                        <li>Depression model achieved near-perfect classification (99.87% accuracy)</li>
+                        <li>Anxiety model demonstrated strong performance (98.93% accuracy)</li>
+                        <li>Both models showed excellent discrimination across all severity levels</li>
+                        <li>Minimal confusion between non-adjacent severity classes</li>
+                    </ul>
+                </div>
+                
+                <h3 id="model-comparison">Model Comparison</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Depression Model</th>
+                            <th>Anxiety Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Accuracy</td>
+                            <td>99.87%</td>
+                            <td>98.93%</td>
+                        </tr>
+                        <tr>
+                            <td>Precision</td>
+                            <td>1.00</td>
+                            <td>0.99</td>
+                        </tr>
+                        <tr>
+                            <td>Recall</td>
+                            <td>1.00</td>
+                            <td>0.99</td>
+                        </tr>
+                        <tr>
+                            <td>F1-Score</td>
+                            <td>1.00</td>
+                            <td>0.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>The depression model slightly outperformed the anxiety model, suggesting that textual expressions of depression may be more linguistically determinable, while anxiety expressions show more linguistic variation.</p>
+                
+                <h3 id="confusion-matrix">Confusion Matrix Analysis</h3>
+                
+                <h4>Depression Model Observations</h4>
+                <div class="highlight-box">
+                    <ul>
+                        <li>Classes 0, 1, and 2 were classified with perfect precision, recall, and F1-score</li>
+                        <li>Class 3 achieved a precision of 0.99 and a recall of 1.00, indicating minimal false-positive predictions</li>
+                        <li>Most misclassifications occur between adjacent severity levels (e.g., mild vs. moderate)</li>
+                        <li>Severe cases are rarely confused with none/mild classes</li>
+                        <li>The model demonstrates extremely high accuracy across all classes</li>
+                    </ul>
+                </div>
+                
+                <h4>Anxiety Model Observations</h4>
+                <div class="highlight-box">
+                    <ul>
+                        <li>Classes 0 and 1 were classified perfectly</li>
+                        <li>Class 2 achieved precision of 0.97, recall of 0.98, and F1-score of 0.98</li>
+                        <li>Class 3 had precision of 0.97 and recall of 0.96, reflecting minor misclassifications</li>
+                        <li>The model slightly underperforms in distinguishing moderate and severe anxiety cases compared to depression severity prediction</li>
+                        <li>Misclassifications mostly occur between classes 2 and 3</li>
+                        <li>Overall performance remains robust with macro-averaged metrics close to 0.99</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box success">
+                    <h4>Clinical Interpretation</h4>
+                    <p>From a clinical perspective, borderline cases between adjacent severity levels are inherently subjective and often difficult to maintain consistency on even for human evaluators. Thus, the errors that did occur are not indicative of a fundamental weakness of the approach but reflect the continuous and gradual nature of symptom severity across mental health conditions.</p>
+                </div>
+            </div>
+            
+            <div class="section" id="limitations">
+                <h2>7. Limitations</h2>
+                
+                <h3 id="technical-limitations">Technical Limitations</h3>
+                <ul>
+                    <li><strong>Single-Sentence Context Modeling:</strong> Limited ability to model disease progression over time based on previous entries</li>
+                    <li><strong>Predefined Embedding Space:</strong> Not fine-tuned on mental health-specific Arabic text, potentially missing subtle expressions of distress</li>
+                    <li><strong>Language Variability:</strong> Dialect variations between Modern Standard Arabic (MSA) and regional dialects not fully addressed</li>
+                </ul>
+                
+                <h3 id="clinical-limitations">Clinical & Practical Limitations</h3>
+                <ul>
+                    <li><strong>Self-Report Bias:</strong> Vulnerable to underreporting, overreporting, and social desirability bias</li>
+                    <li><strong>Lack of Clinical Ground Truth:</strong> Labels based on self-rated severity rather than clinical diagnoses</li>
+                    <li><strong>Cross-Cultural Generalization:</strong> Training data from specific Arabic-speaking community may limit broader applicability</li>
+                    <li><strong>Comorbidity Modeling:</strong> Separate classifiers don't capture shared symptom patterns between depression and anxiety</li>
+                </ul>
+            </div>
+            
+            <div class="section" id="ethics">
+                <h2>8. Ethical Considerations</h2>
+                
+                <div class="highlight-box">
+                    <h3>Responsible AI Development</h3>
+                    <ul>
+                        <li><strong>Privacy Protection:</strong> Synthetic data generation eliminates risks to individual privacy</li>
+                        <li><strong>Bias Mitigation:</strong> Careful examination of generated text for linguistic imbalances</li>
+                        <li><strong>Explainability:</strong> Transparent methods and interpretable features</li>
+                        <li><strong>Non-Diagnostic Use:</strong> Positioned as supportive screening tool, not diagnostic instrument</li>
+                        <li><strong>Fairness & Transparency:</strong> Development guided by responsible AI principles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="lessons">
+                <h2>9. Lessons Learned</h2>
+                
+                <ol>
+                    <li><strong>Transfer Learning Effectiveness:</strong> General-purpose Arabic embeddings proved highly effective without task-specific fine-tuning, lowering barriers to developing robust mental health NLP systems in low-resource domains.</li>
+                    
+                    <li><strong>Cultural & Linguistic Context:</strong> Strong need for culturally grounded datasets and dialect-aware modeling approaches, as subtle variations significantly influence performance.</li>
+                    
+                    <li><strong>Supportive vs. Diagnostic Role:</strong> Automated systems should prioritize transparency, ethical deployment, and human-in-the-loop decision making rather than replacing clinical judgment.</li>
+                </ol>
+            </div>
+            
+            <div class="section" id="conclusion">
+                <h2>10. Conclusion</h2>
+                
+                <p>This study successfully developed a high-performance AI model for early detection and monitoring of depression and anxiety using Arabic text analysis. The system achieved exceptional accuracy rates (99.87% for depression, 98.93% for anxiety) while implementing an intelligent three-tier alert mechanism for longitudinal monitoring.</p>
+                
+                <div class="highlight-box warning">
+                    <h3>Important Note</h3>
+                    <p>Despite its high performance, this model serves as a <strong>supportive tool</strong> for mental health specialists and does not replace clinical judgment. The system is designed to augment, not replace, professional mental health care.</p>
+                </div>
+                
+                <h3 id="future-work">Future Work</h3>
+                <ul>
+                    <li>Clinical validation against standardized diagnostic assessments</li>
+                    <li>Domain-specific fine-tuning of Arabic embeddings for mental health contexts</li>
+                    <li>Sequential modeling approaches (e.g., LSTM networks) to incorporate longitudinal user context</li>
+                    <li>Expansion to include dialect-specific modeling</li>
+                    <li>Multi-task learning for comorbidity modeling</li>
+                </ul>
+                
+                <div class="highlight-box success">
+                    <h3>Impact & Significance</h3>
+                    <p>This research establishes a foundation for more proactive, accurate, and ethically responsible mental health monitoring aligned with global sustainability goals and supports the development of a more resilient and mentally aware society.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Prince Sultan University</strong></p>
+            <p>College of Computer and Information Sciences</p>
+            <p>Riyadh, Saudi Arabia</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2026 | AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts</p>
+        </div>
+    </div>
+</body>
+</html>

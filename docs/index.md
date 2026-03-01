@@ -1,8 +1,3 @@
----
-hide:
-  - toc
----
-
 <div class="home-hero" markdown>
 <div class="home-hero__text" markdown>
 

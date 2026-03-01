@@ -25,14 +25,14 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: red
-      accent: "deep orange"
+      accent: deep orange
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: red
-      accent: "deep orange"
+      accent: deep orange
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -87,8 +87,8 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.magiclink
   - pymdownx.emoji:
-      #emoji_index: !!python/name:material.extensions.emoji.twemoji
-      #emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
 
 extra:
   social:
@@ -103,3 +103,5 @@ plugins:
  
 extra_javascript:
   - javascripts/cta-footer.js
+  - javascripts/layout-toggles.js
+  - javascripts/content-collapsibles.js
