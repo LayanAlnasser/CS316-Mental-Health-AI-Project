@@ -85,6 +85,14 @@
           node.remove();
         }
       });
+
+      if (!copyright.querySelector(".md-footer-credit")) {
+        const credit = document.createElement("div");
+        credit.className = "md-footer-credit";
+        credit.innerHTML =
+          'Made by <a href="https://blueprint.shoug-tech.com/" target="_blank" rel="noopener">Blueprint</a>';
+        copyright.appendChild(credit);
+      }
     }
   }
 
@@ -150,13 +158,17 @@
             <a class="footer-link" href="${url("documentation/ethics/")}">Ethics</a>
           </div>
 
+          <div class="footer-col">
+            <div class="footer-col__title">Policies</div>
+            <a class="footer-link" href="${url("policys/privacy-notice/")}">Privacy Notice</a>
+            <a class="footer-link" href="${url("policys/copyright/")}">Copyright</a>
+          </div>
+
           <div class="footer-col footer-col--connect">
             <div class="footer-col__title">Connect</div>
             <a class="footer-link footer-link--email" href="mailto:${EMAIL}">${EMAIL}</a>
             <a class="footer-link" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
             <a class="footer-link" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
-            <a class="footer-link" href="${url("privacy-notice/")}">Privacy Notice</a>
-            <a class="footer-link" href="${url("copyright/")}">Copyright</a>
           </div>
         </div>
       </div>

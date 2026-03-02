@@ -286,7 +286,7 @@ body,
 .custom-footer {
   position: relative;
   margin-top: 2rem;
-  padding: 40px 18px 34px !important;
+  padding: 34px 12px 28px !important;
   border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
   background: linear-gradient(120deg, #8f1022, #d41f43 50%, #f43f5e 100%) !important;
   color: #fff;
@@ -319,11 +319,12 @@ body,
 .custom-footer__inner {
   position: relative;
   z-index: 1;
-  max-width: 1540px !important;
+  max-width: 1680px !important;
   margin: 0 auto !important;
   display: grid !important;
-  grid-template-columns: 1.35fr 1fr !important;
-  gap: 22px !important;
+  grid-template-columns: 1.25fr 1fr !important;
+  gap: 18px !important;
+  align-items: start;
 }
 
 @media (max-width: 940px) {
@@ -347,13 +348,14 @@ body,
 
 .custom-footer__right {
   display: grid !important;
-  grid-template-columns: 1fr 1fr 1.28fr !important;
-  gap: 14px !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 12px !important;
+  align-items: start;
 }
 
 @media (max-width: 640px) {
   .custom-footer__right {
-    grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;
+    grid-template-columns: 1fr !important;
   }
 
   .footer-col--connect {
@@ -458,18 +460,19 @@ body,
   backdrop-filter: blur(4px);
   min-width: 0;
   overflow: visible;
+  height: auto;
 }
 
 .footer-col--connect {
-  min-width: 320px;
+  min-width: 0;
 }
 
 .footer-link {
   display: block !important;
   padding: 3px 0 !important;
   text-decoration: none !important;
-  font-size: 0.9rem;
-  line-height: 1.35;
+  font-size: 0.86rem;
+  line-height: 1.28;
   overflow-wrap: normal;
   word-break: normal;
 }
@@ -521,6 +524,27 @@ body,
 .md-copyright__highlight,
 .md-copyright__highlight * {
   font-size: 0.8rem !important;
+}
+
+.md-footer-credit {
+  display: inline-block;
+  margin-top: 0.16rem;
+  font-size: 0.72rem !important;
+  line-height: 1.2 !important;
+  color: rgba(255, 244, 245, 0.92) !important;
+  white-space: nowrap;
+}
+
+.md-footer-credit * {
+  display: inline;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+
+.md-footer-credit a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .md-footer-meta .md-social__link {
