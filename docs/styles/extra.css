@@ -98,8 +98,6 @@ body,
   gap: 0.45rem;
 }
 
-.header-cta--github {}
-
 @media (max-width: 76.24em) {
   .header-actions {
     display: none !important;
