@@ -20,10 +20,21 @@
     return titleEl ? titleEl.textContent.trim() : "Website";
   }
 
+  function shouldShowHeaderCTA() {
+    return window.matchMedia("(min-width: 76.25em)").matches;
+  }
+
   function addHeaderCTA() {
     const headerInner = document.querySelector(".md-header__inner");
     if (!headerInner) return;
-    if (headerInner.querySelector(".header-actions")) return;
+    const existing = headerInner.querySelector(".header-actions");
+
+    if (!shouldShowHeaderCTA()) {
+      if (existing) existing.remove();
+      return;
+    }
+
+    if (existing) return;
 
     const actions = document.createElement("div");
     actions.className = "header-actions";
@@ -189,4 +200,6 @@
   } else {
     document.addEventListener("DOMContentLoaded", run);
   }
+
+  window.addEventListener("resize", addHeaderCTA);
 })();

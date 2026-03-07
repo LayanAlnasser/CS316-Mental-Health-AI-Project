@@ -100,6 +100,12 @@ body,
 
 .header-cta--github {}
 
+@media (max-width: 76.24em) {
+  .header-actions {
+    display: none !important;
+  }
+}
+
 .md-content__inner {
   max-width: 1040px !important;
 }
