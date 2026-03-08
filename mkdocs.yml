@@ -97,12 +97,12 @@ extra:
       link: https://github.com/LayanAlnasser
 
 extra_css:
-  - styles/extra.css
+  - styles/extra.v2.css
 
 plugins:
   - search
  
 extra_javascript:
-  - javascripts/cta-footer.js
+  - javascripts/cta-footer.v2.js
   - javascripts/layout-toggles.js
   - javascripts/content-collapsibles.js

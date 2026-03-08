@@ -295,6 +295,8 @@ body,
   background: linear-gradient(120deg, #8f1022, #d41f43 50%, #f43f5e 100%) !important;
   color: #fff;
   overflow: hidden;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .md-footer {
@@ -330,6 +332,7 @@ body,
   grid-template-columns: 1.25fr 1fr !important;
   gap: 18px !important;
   align-items: start;
+  overflow-x: clip;
 }
 
 .custom-footer__left,
@@ -340,6 +343,15 @@ body,
 @media (max-width: 940px) {
   .custom-footer__inner {
     grid-template-columns: 1fr !important;
+  }
+
+  .custom-footer__right {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+
+  .footer-col {
+    width: 100%;
   }
 }
 
