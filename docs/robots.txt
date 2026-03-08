@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/sitemap.xml
