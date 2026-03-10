@@ -1,49 +1,78 @@
-# Copyright
+# IEEE COPYRIGHT AND CONSENT FORM
 
-© **2026**
-**Layan Alnasser, Hessah Alsubaiee, Leen Almunifi, Norah Alhadyani, Mashael Alsedais, Souad Larabi-Marie Sainte**
-College of Computer and Information Sciences, Prince Sultan University, Riyadh, Saudi Arabia.
-All rights reserved.
+## Paper Information
 
-This repository/website and the associated research paper:
+**Title:**  
+AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts
 
-> **“AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts”**
+**Conference:**  
+© 2026 Ninth International Women in Data Science Conference at Prince Sultan University (WiDS PSU)
 
-including but not limited to its text, figures, tables, diagrams, datasets, experimental results, and supplementary materials, are protected by international copyright laws.
+**Authors:**  
+1. Layan Alnasser  
+2. Leen Almunifi  
+3. Mashael Alsedais  
+4. Hessah Alsubaiee  
+5. Norah Alhadyani  
+6. Souad Larabi-Marie Sainte
 
-## Ownership
+---
 
-Copyright is retained by the authors listed above.
-No part of this work may be reproduced, distributed, transmitted, stored, or adapted in any form or by any means without prior written permission from the copyright holders, except where permitted by applicable law (e.g., fair use for scholarly citation).
+# COPYRIGHT TRANSFER
 
-## Permitted Use
+The undersigned hereby assigns to **The Institute of Electrical and Electronics Engineers (IEEE)** all rights under copyright that may exist in the Work, including any revised or derivative versions submitted to IEEE.
 
-You are permitted to:
+This includes any written, visual, or multimedia materials accompanying the Work.
 
-* Read, download, and use this work for **personal, educational, or non-commercial research purposes**.
-* Cite this work in academic publications, theses, or presentations, provided proper attribution is given to the authors and the original work.
+---
 
-You are not permitted to:
+# GENERAL TERMS
 
-* Use this work for commercial purposes without explicit permission.
-* Redistribute, republish, or mirror this work in full or in part without authorization.
-* Create derivative works based on this work without prior written consent.
-* Present this work or any part of it as your own.
+1. The undersigned confirms they have the authority to execute this agreement.
+2. The author agrees to indemnify IEEE against damages resulting from breach of the warranties stated in this form.
+3. Publication is subject to IEEE policies and procedures described in the IEEE PSPB Operations Manual.
+4. If the Work is not accepted for publication, the copyright transfer becomes null and void.
+5. For jointly authored works, all authors sign or one author signs as an authorized representative for the others.
+6. The author confirms the Work is original and that permissions for any third-party material have been obtained.
 
-## Citation
+---
 
-When referencing this work, please cite it as:
+# CONSENT AND RELEASE
 
-> L. Alnasser, H. Alsubaiee, L. Almunifi, N. Alhadyani, M. Alsedais, S. Larabi-Marie Sainte,
-> *AI-Based Longitudinal Tracking for Early Prediction of Mental Health Decline with Predictive Alerts*, Prince Sultan University, 2026.
+If the author presents the Work at an IEEE-sponsored conference, the author grants IEEE the worldwide, irrevocable permission to:
 
-## Disclaimer
+- record the presentation
+- distribute and archive it
+- reproduce related presentation materials
+- use the author's name, likeness, and voice in connection with IEEE publications or promotional materials.
 
-This research is provided for academic and informational purposes only. It does not constitute medical advice, diagnosis, or treatment. The authors and affiliated institution assume no responsibility or liability for any consequences arising from the use or misuse of this work or its results.
+---
 
-## Contact
+# AUTHOR SIGNATURES
 
-For permissions, licensing, or other inquiries, please contact the corresponding author(s) via their institutional or listed email addresses in the paper.
+By typing our full names below, we certify that this constitutes our **electronic signatures**.
 
-For further assistance:
-**Email:** [Layanaalnasser@gmail.com](mailto:Layanaalnasser@gmail.com)
+| Author | Electronic Signature | Date (dd-mm-yyyy) |
+|------|------|------|
+| Layan Alnasser | Layan Alnasser | 10-03-2026 |
+| Leen Almunifi | Leen Almunifi | 10-03-2026 |
+| Mashael Alsedais | Mashael Alsedais | 10-03-2026 |
+| Hessah Alsubaiee | Hessah Alsubaiee | 10-03-2026 |
+| Norah Alhadyani | Norah Alhadyani | 10-03-2026 |
+| Souad Larabi-Marie Sainte | Souad Larabi-Marie Sainte | 10-03-2026 |
+
+---
+
+# Author Responsibilities
+
+Authors must ensure their work complies with IEEE policies regarding originality, authorship, and ethical publication standards.
+
+More information:  
+http://www.ieee.org/publications_standards/publications/rights/authorrightsresponsibilities.html
+
+---
+
+# Contact
+
+**IEEE Intellectual Property Rights Office**  
+Email: [Layanaalnasser@gmail.com](mailto:Layanaalnasser@gmail.com)

@@ -3,24 +3,16 @@
   const LINKEDIN = "https://www.linkedin.com/in/layan-alnasser";
   const GITHUB = "https://github.com/LayanAlnasser";
 
-  function getSiteRoot() {
-    const homeLink = document.querySelector(".md-header__button.md-logo");
-    const href = homeLink && homeLink.getAttribute("href");
-
-    if (href) {
-      return new URL(href.endsWith("/") ? href : `${href}/`, window.location.href);
-    }
-
-    if (typeof __md_scope !== "undefined") {
-      return new URL(".", __md_scope.href);
-    }
-
-    return new URL(".", window.location.href);
+  function getBase() {
+    try {
+      if (typeof __md_get === "function") return __md_get("__base") || "";
+    } catch (e) {}
+    return "";
   }
 
   function url(path) {
-    const cleanPath = (path || "").replace(/^\//, "");
-    return new URL(cleanPath, getSiteRoot()).toString();
+    const base = getBase();
+    return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
   }
 
   function getSiteName() {
@@ -28,21 +20,10 @@
     return titleEl ? titleEl.textContent.trim() : "Website";
   }
 
-  function shouldShowHeaderCTA() {
-    return window.matchMedia("(min-width: 76.25em)").matches;
-  }
-
   function addHeaderCTA() {
     const headerInner = document.querySelector(".md-header__inner");
     if (!headerInner) return;
-    const existing = headerInner.querySelector(".header-actions");
-
-    if (!shouldShowHeaderCTA()) {
-      if (existing) existing.remove();
-      return;
-    }
-
-    if (existing) return;
+    if (headerInner.querySelector(".header-actions")) return;
 
     const actions = document.createElement("div");
     actions.className = "header-actions";
@@ -118,9 +99,7 @@
   function addFooterBlock() {
     const footer = document.querySelector(".md-footer");
     if (!footer) return;
-
-    const existing = footer.querySelector(".custom-footer");
-    if (existing) existing.remove();
+    if (footer.querySelector(".custom-footer")) return;
 
     const meta = footer.querySelector(".md-footer-meta");
     const block = document.createElement("section");
@@ -181,8 +160,8 @@
 
           <div class="footer-col">
             <div class="footer-col__title">Policies</div>
-            <a class="footer-link" href="${url("privacy-notice/")}">Privacy Notice</a>
-            <a class="footer-link" href="${url("copyright/")}">Copyright</a>
+            <a class="footer-link" href="${url("policys/privacy-notice/")}">Privacy Notice</a>
+            <a class="footer-link" href="${url("policys/copyright/")}">Copyright</a>
           </div>
 
           <div class="footer-col footer-col--connect">
@@ -210,6 +189,4 @@
   } else {
     document.addEventListener("DOMContentLoaded", run);
   }
-
-  window.addEventListener("resize", addHeaderCTA);
 })();

@@ -69,6 +69,8 @@ nav:
   - About:
       - Contributors: about/contributors.md
       - Contact: about/contact.md
+      - Privacy Notice: privacy-notice.md
+      - Copyright: copyright.md
 
 
 markdown_extensions:
